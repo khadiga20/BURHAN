@@ -732,6 +732,159 @@ body[data-page="science"] .home-hero::after {
   color: var(--color-accent-science-light, #F5CE85);
 }
 
+/* ---- Mathematics World Hero Layout & Educator Visual ---- */
+@media (max-width: 1023px) {
+  .math-hero .home-hero-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .math-hero .home-hero-content {
+    display: contents;
+  }
+
+  .math-hero .home-hero-header {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .math-hero .home-hero-visual {
+    order: 2;
+    margin-block: var(--space-6);
+  }
+
+  .math-hero .home-hero-meta-cta {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .math-hero .home-hero-header,
+  .math-hero .home-hero-meta-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .math-hero .home-hero-visual {
+    max-width: 480px;
+    margin-inline: auto;
+  }
+}
+
+/* ---- Hero Credentials & Proof Highlights ---- */
+.hero-credentials-strip {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-4);
+  margin-block: var(--space-2) var(--space-3);
+  flex-wrap: wrap;
+}
+
+.hero-cred-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline-end: var(--space-4);
+  border-inline-end: 1px solid var(--color-hairline-light);
+}
+
+.hero-cred-item:last-child {
+  border-inline-end: none;
+  padding-inline-end: 0;
+}
+
+.hero-cred-num {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-math);
+  line-height: 1;
+  margin-block-end: var(--space-1);
+}
+
+[data-theme="dark"] .hero-cred-num {
+  color: var(--color-accent-math-light, #8BA3E8);
+}
+
+.hero-cred-tag {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ink);
+  line-height: 1;
+  margin-block-end: var(--space-1);
+  letter-spacing: 0.02em;
+}
+
+.hero-cred-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-cred-subline {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.03em;
+  margin-block-end: var(--space-6);
+  line-height: var(--line-height-normal);
+}
+
+/* ---- Compact Educator Identity Lockup (Below Cutout) ---- */
+.hero-educator-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-control);
+  z-index: 1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: background-color var(--duration-transition) var(--ease-burhan),
+              border-color var(--duration-transition) var(--ease-burhan);
+}
+
+[data-theme="dark"] .hero-educator-lockup {
+  background-color: rgba(25, 27, 34, 0.85);
+  border-color: var(--color-hairline-dark);
+}
+
+.hero-educator-name {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ink);
+  line-height: var(--line-height-tight);
+}
+
+.hero-educator-role {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-math);
+  letter-spacing: 0.04em;
+  margin-top: var(--space-1);
+}
+
+[data-theme="dark"] .hero-educator-role {
+  color: var(--color-accent-math-light, #8BA3E8);
+}
+
+.hero-educator-location {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.03em;
+  margin-top: 2px;
+}
+
 
 
 .home-hero-container::before {
@@ -2172,13 +2325,20 @@ body[data-page="contact"] {
   margin-top: auto;
 }
 
-.contact-phone-display {
+.contact-phone-display,
+.contact-email-display {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
   margin-top: var(--space-1);
+  text-decoration: none;
+  transition: color var(--duration-transition) var(--ease-burhan);
+}
+
+.contact-email-display:hover {
+  color: var(--color-ink);
 }
 
 .whatsapp-badge-icon {
@@ -2289,12 +2449,19 @@ body[data-page="contact"] {
   margin: var(--space-2) 0 var(--space-2);
 }
 
-/* Phone number */
-.contact-teacher-phone {
+/* Phone number & Email */
+.contact-teacher-phone,
+.contact-teacher-email {
   font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
   letter-spacing: 0.04em;
   margin-top: var(--space-1);
+  text-decoration: none;
+  transition: color var(--duration-transition) var(--ease-burhan);
+}
+
+.contact-teacher-email:hover {
+  color: var(--color-ink);
 }
 
 /* Dark mode adjustments */
