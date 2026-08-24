@@ -25,12 +25,12 @@
     if (stored && SUPPORTED_THEMES.indexOf(stored) !== -1) {
       return stored;
     }
-    return getSystemPreference();
+    return 'dark';
   }
 
   function setTheme(theme) {
     if (SUPPORTED_THEMES.indexOf(theme) === -1) {
-      theme = 'light';
+      theme = 'dark';
     }
 
     document.documentElement.setAttribute('data-theme', theme);
@@ -85,16 +85,27 @@
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
         try {
           if (!localStorage.getItem(STORAGE_KEY)) {
-            setTheme(e.matches ? 'dark' : 'light');
+            setTheme('dark');
           }
         } catch (err) {}
       });
     }
   }
 
-  // Immediate execution on script parse to prevent Theme Flash (FOUC)
+  // Immediate execution on script parse to prevent Theme & Direction Flash (FOUC)
   var immediateTheme = getCurrentTheme();
   document.documentElement.setAttribute('data-theme', immediateTheme);
+
+  try {
+    var storedLang = localStorage.getItem('burhan_preferred_lang');
+    if (storedLang === 'en') {
+      document.documentElement.lang = 'en';
+      document.documentElement.dir = 'ltr';
+    } else {
+      document.documentElement.lang = 'ar';
+      document.documentElement.dir = 'rtl';
+    }
+  } catch (e) {}
 
   // Expose API
   window.BURHAN = window.BURHAN || {};

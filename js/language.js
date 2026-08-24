@@ -7,10 +7,14 @@
 
   const STORAGE_KEY = 'burhan_preferred_lang';
   const SUPPORTED_LANGS = ['en', 'ar'];
-  const DEFAULT_LANG = 'en';
+  const DEFAULT_LANG = 'ar';
 
   function getCurrentLanguage() {
-    const stored = localStorage.getItem(STORAGE_KEY);
+    let stored = null;
+    try {
+      stored = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {}
+
     if (stored && SUPPORTED_LANGS.includes(stored)) {
       return stored;
     }
@@ -20,6 +24,7 @@
     }
     return DEFAULT_LANG;
   }
+
 
   function setLanguage(lang, preserveScroll) {
     if (preserveScroll === undefined) preserveScroll = true;
