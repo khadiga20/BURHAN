@@ -1,0 +1,2402 @@
+/* ==========================================================================
+   BURHAN | بُرهان — Refined Page Layouts, Interactions & Visual Environment
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. MATHEMATICS WORLD GLOBAL CANVAS STACKING & TRANSPARENCY FIX
+   -------------------------------------------------------------------------- */
+body[data-page="mathematics"],
+body[data-page="science"] {
+  background-color: var(--color-paper);
+  position: relative;
+}
+
+/* Fixed Canvas Layer — Layer 1 (above paper body background) */
+body[data-page="mathematics"] .hero-canvas,
+body[data-page="science"] .hero-canvas {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+/* Sections & Main Container — Layer 2 (Transparent backgrounds to reveal canvas) */
+body[data-page="mathematics"] main,
+body[data-page="mathematics"] section,
+body[data-page="mathematics"] .home-hero,
+body[data-page="mathematics"] .math-hero,
+body[data-page="mathematics"] .proof-stages-section,
+body[data-page="mathematics"] .teacher-intro-section,
+body[data-page="mathematics"] .experience-cv-section,
+body[data-page="mathematics"] .teaching-videos-section,
+body[data-page="mathematics"] .curriculum-section,
+body[data-page="mathematics"] .contact-teacher-section,
+body[data-page="mathematics"] .closing-cta-section,
+body[data-page="science"] main,
+body[data-page="science"] section,
+body[data-page="science"] .home-hero,
+body[data-page="science"] .science-hero,
+body[data-page="science"] .proof-stages-section,
+body[data-page="science"] .teacher-intro-section,
+body[data-page="science"] .experience-cv-section,
+body[data-page="science"] .teaching-videos-section,
+body[data-page="science"] .curriculum-section,
+body[data-page="science"] .contact-teacher-section,
+body[data-page="science"] .closing-cta-section {
+  background-color: transparent !important;
+  isolation: auto !important;
+  position: relative;
+  z-index: 2;
+}
+
+/* Disable opaque pseudo overlays on hero */
+body[data-page="mathematics"] .home-hero::before,
+body[data-page="mathematics"] .home-hero::after,
+body[data-page="science"] .home-hero::before,
+body[data-page="science"] .home-hero::after {
+  display: none !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   SCROLL REVEAL — Differentiated reveal behaviors per section
+   -------------------------------------------------------------------------- */
+
+/* Default: fade + rise */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s var(--ease-burhan),
+    transform 0.65s var(--ease-burhan);
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero elements: fade + subtle rise, staggered */
+[data-reveal-hero] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.65s var(--ease-burhan),
+    transform 0.65s var(--ease-burhan);
+}
+
+[data-reveal-hero].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide in from inline-start */
+[data-reveal-slide] {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.6s var(--ease-burhan),
+    transform 0.6s var(--ease-burhan);
+}
+
+[dir="rtl"] [data-reveal-slide] {
+  transform: translateX(24px);
+}
+
+[data-reveal-slide].is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale in horizontally */
+[data-reveal-scale] {
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: inline-start center;
+  transition: opacity 0.5s var(--ease-burhan),
+    transform 0.5s var(--ease-burhan);
+}
+
+[data-reveal-scale].is-revealed {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Reduced motion: instant show, no transform */
+@media (prefers-reduced-motion: reduce) {
+
+  [data-reveal],
+  [data-reveal-hero],
+  [data-reveal-slide],
+  [data-reveal-scale] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   1. CINEMATIC INTRO — "THE FIRST WHY"
+   -------------------------------------------------------------------------- */
+.cinematic-intro {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  opacity: 1;
+  transition: opacity var(--duration-transition) var(--ease-burhan);
+  overflow: hidden;
+}
+
+
+.intro-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.intro-ambient-symbol {
+  position: absolute;
+  font-family: serif;
+  color: var(--color-paper);
+  animation: intro-symbol-float 8s ease-in-out infinite alternate;
+}
+
+.intro-ambient-symbol:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.intro-ambient-symbol:nth-child(3) {
+  animation-delay: -4s;
+}
+
+.intro-ambient-symbol:nth-child(4) {
+  animation-delay: -1s;
+}
+
+.intro-ambient-symbol:nth-child(5) {
+  animation-delay: -3s;
+}
+
+.intro-ambient-symbol:nth-child(6) {
+  animation-delay: -5s;
+}
+
+@keyframes intro-symbol-float {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+.cinematic-intro.is-fading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cinematic-intro.is-dismissed {
+  display: none !important;
+}
+
+.intro-stage {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--duration-cinematic) var(--ease-burhan),
+    transform var(--duration-cinematic) var(--ease-burhan);
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  max-width: 860px;
+  padding-inline: var(--space-6);
+}
+
+.intro-stage.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-stage.is-exiting {
+  opacity: 0;
+  transform: translateY(-12px);
+  transition: opacity 0.4s var(--ease-burhan),
+    transform 0.4s var(--ease-burhan);
+}
+
+.intro-question {
+  font-size: clamp(var(--font-size-2xl), 5.5vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-medium);
+  color: var(--color-paper);
+  max-width: 28ch;
+  margin-inline: auto;
+  line-height: var(--line-height-snug);
+  text-align: center;
+}
+
+.intro-identity-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.intro-wordmark {
+  font-size: clamp(var(--font-size-3xl), 6.5vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-bold);
+  color: var(--color-paper);
+  letter-spacing: normal;
+}
+
+.intro-burhan-divider {
+  color: var(--color-brass);
+  animation: intro-divider-pulse 1.6s var(--ease-burhan) infinite alternate;
+  display: inline-block;
+}
+
+@keyframes intro-divider-pulse {
+  from {
+    opacity: 0.3;
+    transform: scaleY(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+}
+
+.intro-tagline-wrap {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--duration-standard) var(--ease-burhan),
+    transform var(--duration-standard) var(--ease-burhan);
+}
+
+.intro-stage.is-visible .intro-tagline-wrap.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-tagline {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  color: var(--color-text-on-dark-secondary);
+  max-width: 44ch;
+  line-height: var(--line-height-normal);
+  text-transform: uppercase;
+}
+
+.cinematic-skip-btn {
+  position: absolute;
+  bottom: var(--space-8);
+  inset-inline-end: var(--space-8);
+  background: transparent;
+  border: 1px solid var(--color-hairline-dark);
+  color: var(--color-text-on-dark-secondary);
+  padding: var(--space-2) var(--space-5);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--font-size-xs);
+  font-family: var(--font-latin-mono);
+  cursor: pointer;
+  border-radius: var(--radius-control);
+  transition: color var(--duration-standard) var(--ease-burhan),
+    border-color var(--duration-standard) var(--ease-burhan),
+    background-color var(--duration-standard) var(--ease-burhan);
+}
+
+.cinematic-skip-btn:hover {
+  color: var(--color-paper);
+  border-color: var(--color-brass);
+  background-color: rgba(140, 107, 51, 0.12);
+}
+
+.cinematic-skip-btn:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-intro {
+    display: none !important;
+  }
+
+  .intro-burhan-divider {
+    animation: none;
+  }
+
+  .intro-ambient-symbol {
+    animation: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. HOME HERO — Immersive Mathematical + Scientific Environment
+   -------------------------------------------------------------------------- */
+.home-hero {
+  position: relative;
+  padding-block: var(--space-10) var(--space-9);
+  background-color: var(--color-paper);
+  border-bottom: 1px solid var(--color-hairline-light);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (min-width: 1024px) {
+  .home-hero {
+    padding-block: calc(var(--space-10) + var(--space-5)) var(--space-10);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* ---- Animated Canvas Background ---- */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-burhan);
+}
+
+.home-hero.line-active .hero-canvas {
+  opacity: 1;
+}
+
+/* ---- Radial Glow Atmospheres ---- */
+.hero-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.5s var(--ease-burhan);
+}
+
+.home-hero.line-active .hero-glow {
+  opacity: 1;
+}
+
+.hero-glow--math {
+  width: 600px;
+  height: 500px;
+  top: -15%;
+  inset-inline-start: -10%;
+  background: radial-gradient(ellipse, rgba(46, 62, 116, 0.09) 0%, transparent 70%);
+}
+
+.hero-glow--science {
+  width: 500px;
+  height: 400px;
+  bottom: -10%;
+  inset-inline-end: -5%;
+  background: radial-gradient(ellipse, rgba(169, 118, 47, 0.08) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .hero-glow--math {
+  background: radial-gradient(ellipse, rgba(104, 130, 216, 0.12) 0%, transparent 70%);
+}
+
+[data-theme="dark"] .hero-glow--science {
+  background: radial-gradient(ellipse, rgba(221, 163, 78, 0.1) 0%, transparent 70%);
+}
+
+/* ---- Blueprint grid subtle texture ---- */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--color-hairline-light) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-hairline-light) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="dark"] .home-hero::before {
+  opacity: 0.08;
+}
+
+/* ---- Animated top brass accent line ---- */
+.hero-accent-line {
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-brass), transparent);
+  display: block;
+  transition: width 1.2s var(--ease-burhan);
+  z-index: 3;
+}
+
+.hero-accent-line--math {
+  background: linear-gradient(90deg, var(--color-accent-math), var(--color-brass), transparent);
+}
+
+.home-hero.line-active .hero-accent-line {
+  width: 100%;
+}
+
+/* ---- Floating ambient symbols ---- */
+.hero-ambient-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.ambient-symbol {
+  position: absolute;
+  font-family: serif;
+  font-size: 1.2rem;
+  color: var(--color-accent-math);
+  opacity: 0;
+  transition: opacity 2s var(--ease-burhan);
+  line-height: 1;
+  user-select: none;
+  animation: ambient-symbol-drift 12s ease-in-out infinite alternate;
+}
+
+.a-sym-1 {
+  top: 12%;
+  inset-inline-start: 4%;
+  font-size: 2rem;
+  animation-delay: 0s;
+  opacity: 0;
+}
+
+.a-sym-2 {
+  top: 65%;
+  inset-inline-start: 6%;
+  font-size: 1.5rem;
+  animation-delay: -2s;
+  color: var(--color-accent-math);
+}
+
+.a-sym-3 {
+  top: 25%;
+  inset-inline-end: 8%;
+  font-size: 1.8rem;
+  animation-delay: -4s;
+  color: var(--color-brass);
+}
+
+.a-sym-4 {
+  top: 75%;
+  inset-inline-end: 5%;
+  font-size: 1.4rem;
+  animation-delay: -1.5s;
+  color: var(--color-accent-science);
+}
+
+.a-sym-5 {
+  top: 45%;
+  inset-inline-start: 3%;
+  font-size: 1.6rem;
+  animation-delay: -3s;
+  color: var(--color-accent-math);
+}
+
+.a-sym-6 {
+  top: 18%;
+  inset-inline-end: 14%;
+  font-size: 1.1rem;
+  animation-delay: -5s;
+  color: var(--color-brass);
+}
+
+.a-sym-7 {
+  top: 55%;
+  inset-inline-end: 10%;
+  font-size: 1.3rem;
+  animation-delay: -2.5s;
+  color: var(--color-accent-science);
+}
+
+.a-sym-8 {
+  top: 38%;
+  inset-inline-start: 8%;
+  font-size: 1rem;
+  animation-delay: -0.5s;
+  color: var(--color-accent-math);
+}
+
+.home-hero.line-active .ambient-symbol {
+  opacity: 0.07;
+}
+
+[data-theme="dark"] .home-hero.line-active .ambient-symbol {
+  opacity: 0.12;
+}
+
+@keyframes ambient-symbol-drift {
+  from {
+    transform: translateY(0) rotate(-2deg);
+  }
+
+  to {
+    transform: translateY(-16px) rotate(2deg);
+  }
+}
+
+/* ---- Vertical proof bar on left edge ---- */
+.home-hero-container {
+  position: relative;
+  z-index: 5;
+  padding-inline-start: var(--space-6);
+  width: 100%;
+}
+
+/* ---- Home Hero Grid Layout (Desktop: Text | Combined Image, Mobile: Stacked) ---- */
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .home-hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .home-hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+  }
+}
+
+.home-hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-hero-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Cinematic Teacher Image Entrance Transition:
+   Starts slightly smaller (scale 0.94) and lower (translateY 24px), low opacity (0),
+   smooth soft clip/reveal transition (clip-path inset(14% 0 0 0)),
+   gently ascending into final settling position over 850ms cubic-bezier(0.65, 0, 0.35, 1).
+*/
+.hero-teachers-visual[data-reveal-hero] {
+  opacity: 0;
+  transform: scale(0.94) translateY(24px);
+  clip-path: inset(14% 0 0 0);
+  transition: opacity 0.85s cubic-bezier(0.65, 0, 0.35, 1),
+    transform 0.85s cubic-bezier(0.65, 0, 0.35, 1),
+    clip-path 0.85s cubic-bezier(0.65, 0, 0.35, 1);
+  will-change: opacity, transform, clip-path;
+}
+
+.hero-teachers-visual[data-reveal-hero].is-revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  clip-path: inset(0 0 0 0);
+}
+
+.hero-teachers-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  /* Significantly larger visual presence on desktop */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Subtle Math (Indigo) & Science (Amber) Minimal Accent Glows */
+.teachers-accent-glow {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.24;
+  z-index: 0;
+  transition: opacity var(--duration-transition) var(--ease-burhan);
+}
+
+.teachers-accent-glow--math {
+  inset-inline-start: -5%;
+  top: 15%;
+  background: var(--color-accent-math);
+}
+
+.teachers-accent-glow--science {
+  inset-inline-end: -5%;
+  bottom: 15%;
+  background: var(--color-accent-science);
+}
+
+[data-theme="dark"] .teachers-accent-glow {
+  opacity: 0.18;
+}
+
+/* Direct Teachers Cutout Display (No Card / Container Box) */
+.hero-teachers-display {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.hero-teachers-img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  /* Prominent & large visual focal point */
+  object-fit: contain;
+  object-position: bottom center;
+  display: block;
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.12));
+}
+
+@media (min-width: 1280px) {
+  .hero-teachers-img {
+    max-height: 580px;
+  }
+}
+
+/* Editorial Caption Tag below Visual */
+.hero-teachers-caption {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-control);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-latin-mono);
+  color: var(--color-text-secondary);
+  z-index: 1;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.caption-item--math {
+  color: var(--color-accent-math);
+  font-weight: var(--font-weight-medium);
+}
+
+.caption-item--science {
+  color: var(--color-accent-science);
+  font-weight: var(--font-weight-medium);
+}
+
+[data-theme="dark"] .caption-item--math {
+  color: var(--color-accent-math-light, #8BA3E8);
+}
+
+[data-theme="dark"] .caption-item--science {
+  color: var(--color-accent-science-light, #F5CE85);
+}
+
+
+
+.home-hero-container::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--color-brass), transparent);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 0.8s 0.3s var(--ease-burhan);
+}
+
+.math-hero .home-hero-container::before {
+  background: linear-gradient(to bottom, var(--color-accent-math), var(--color-brass), transparent);
+}
+
+.home-hero.line-active .home-hero-container::before {
+  transform: scaleY(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-accent-line,
+  .home-hero-container::before {
+    transition: none !important;
+    width: 100%;
+    transform: scaleY(1);
+  }
+
+  .ambient-symbol {
+    animation: none !important;
+    opacity: 0.06 !important;
+  }
+
+  .hero-canvas {
+    opacity: 0.5 !important;
+  }
+}
+
+/* ---- Hero Badge Tags ---- */
+.hero-badges {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-block-end: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-control);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-latin-mono);
+  color: var(--color-brass);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.05em;
+  transition: background-color var(--duration-transition) var(--ease-burhan),
+    border-color var(--duration-standard) var(--ease-burhan);
+}
+
+.hero-badge--math {
+  color: var(--color-accent-math);
+  border-color: rgba(46, 62, 116, 0.25);
+}
+
+.hero-badge:hover {
+  border-color: var(--color-brass);
+}
+
+.hero-badge--math:hover {
+  border-color: var(--color-accent-math);
+}
+
+.hero-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-brass);
+  box-shadow: 0 0 8px rgba(140, 107, 51, 0.6);
+  animation: badge-dot-pulse 2.5s ease-in-out infinite;
+}
+
+.hero-badge-dot--math {
+  background-color: var(--color-accent-math);
+  box-shadow: 0 0 8px rgba(46, 62, 116, 0.6);
+}
+
+@keyframes badge-dot-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 8px rgba(140, 107, 51, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 16px rgba(140, 107, 51, 0.9);
+  }
+}
+
+/* ---- Hero Typography ---- */
+.home-hero-title {
+  font-size: clamp(var(--font-size-2xl), 5.5vw, var(--font-size-5xl));
+  line-height: var(--line-height-tight);
+  max-width: 20ch;
+  margin-block-end: var(--space-5);
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+.hero-eyebrow {
+  margin-block-end: var(--space-3);
+  letter-spacing: 0.1em;
+}
+
+.home-hero-lead {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 52ch;
+  line-height: var(--line-height-relaxed);
+  margin-block-end: var(--space-7);
+}
+
+/* ---- Interactive Proof Bar ---- */
+.hero-proof-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block-end: var(--space-7);
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-control);
+  flex-wrap: wrap;
+  transition: border-color var(--duration-standard) var(--ease-burhan),
+    box-shadow var(--duration-standard) var(--ease-burhan);
+  cursor: default;
+}
+
+.hero-proof-bar:hover {
+  border-color: var(--color-brass);
+  box-shadow: 0 0 20px rgba(140, 107, 51, 0.08);
+}
+
+.hero-proof-step {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  cursor: default;
+  transition: color var(--duration-standard) var(--ease-burhan);
+}
+
+.hero-proof-step:hover {
+  color: var(--color-brass);
+}
+
+.hero-proof-bar .hero-proof-sep {
+  font-size: var(--font-size-md);
+  color: var(--color-brass);
+  opacity: 0.5;
+}
+
+/* ---- Hero CTA Row ---- */
+.hero-cta-row {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* ---- Ghost Button ---- */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-hairline-light);
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  transition: border-color var(--duration-standard) var(--ease-burhan),
+    background-color var(--duration-standard) var(--ease-burhan),
+    color var(--duration-standard) var(--ease-burhan);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-brass);
+  background-color: rgba(140, 107, 51, 0.08);
+  color: var(--color-ink);
+}
+
+.btn-ghost:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+/* ---- Hero Scroll Indicator ---- */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: var(--space-7);
+  inset-inline-start: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 1s 1.5s var(--ease-burhan);
+}
+
+.home-hero.line-active .hero-scroll-indicator {
+  opacity: 1;
+}
+
+.scroll-line {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-brass), transparent);
+  animation: scroll-line-pulse 2s ease-in-out infinite;
+}
+
+@keyframes scroll-line-pulse {
+
+  0%,
+  100% {
+    transform: scaleY(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scaleY(0.6);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-indicator {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-scroll-indicator {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. WORLDS SECTION — "Choose Your World" Immersive Portals
+   -------------------------------------------------------------------------- */
+.worlds-section {
+  padding-block: var(--space-10);
+  background-color: var(--color-paper-alt);
+  border-bottom: 1px solid var(--color-hairline-light);
+  transition: background-color var(--duration-transition) var(--ease-burhan);
+}
+
+.world-selection-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  margin-block-start: var(--space-7);
+}
+
+@media (min-width: 768px) {
+  .world-selection-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.world-panel {
+  position: relative;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-none);
+  overflow: hidden;
+  cursor: default;
+  isolation: isolate;
+
+  --panel-tilt-x: 0deg;
+  --panel-tilt-y: 0deg;
+
+  transform: perspective(1200px) rotateX(var(--panel-tilt-x)) rotateY(var(--panel-tilt-y));
+  transition:
+    border-color var(--duration-transition) var(--ease-burhan),
+    background-color var(--duration-transition) var(--ease-burhan),
+    transform var(--duration-standard) var(--ease-burhan),
+    box-shadow var(--duration-transition) var(--ease-burhan);
+}
+
+.world-panel[data-world="math"] {
+  border-top: 4px solid var(--color-accent-math);
+}
+
+.world-panel[data-world="science"] {
+  border-top: 4px solid var(--color-accent-science);
+}
+
+.world-panel[data-world="math"]:hover,
+.world-panel[data-world="math"]:focus-within {
+  border-color: var(--color-accent-math);
+  background-color: var(--color-accent-math-soft);
+  box-shadow: inset 0 0 0 1px var(--color-accent-math),
+    0 24px 48px rgba(46, 62, 116, 0.18);
+}
+
+.world-panel[data-world="science"]:hover,
+.world-panel[data-world="science"]:focus-within {
+  border-color: var(--color-accent-science);
+  background-color: var(--color-accent-science-soft);
+  box-shadow: inset 0 0 0 1px var(--color-accent-science),
+    0 24px 48px rgba(169, 118, 47, 0.18);
+}
+
+.world-panel:focus-within {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 3px;
+}
+
+.world-panel-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.world-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-burhan);
+}
+
+.world-panel:hover .world-canvas,
+.world-panel:focus-within .world-canvas {
+  opacity: 1;
+}
+
+.world-panel-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-burhan);
+  border-radius: inherit;
+}
+
+.world-panel[data-world="math"] .world-panel-glow {
+  background: radial-gradient(ellipse at 30% 30%, rgba(46, 62, 116, 0.08) 0%, transparent 60%);
+}
+
+.world-panel[data-world="science"] .world-panel-glow {
+  background: radial-gradient(ellipse at 70% 30%, rgba(169, 118, 47, 0.08) 0%, transparent 60%);
+}
+
+.world-panel:hover .world-panel-glow,
+.world-panel:focus-within .world-panel-glow {
+  opacity: 1;
+}
+
+[data-theme="dark"] .world-panel[data-world="math"] .world-panel-glow {
+  background: radial-gradient(ellipse at 30% 30%, rgba(104, 130, 216, 0.1) 0%, transparent 60%);
+}
+
+[data-theme="dark"] .world-panel[data-world="science"] .world-panel-glow {
+  background: radial-gradient(ellipse at 70% 30%, rgba(221, 163, 78, 0.1) 0%, transparent 60%);
+}
+
+.panel-motif {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-transition) var(--ease-burhan);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.world-panel:hover .panel-motif,
+.world-panel:focus-within .panel-motif {
+  opacity: 1;
+}
+
+.panel-motif--math {
+  display: block;
+}
+
+.panel-motif-line {
+  position: absolute;
+  background-color: var(--color-accent-math);
+  opacity: 0.15;
+}
+
+.pm-l1 {
+  width: 70%;
+  height: 1px;
+  bottom: 28%;
+  inset-inline-end: 0;
+  transform: scaleX(0);
+  transform-origin: inline-start center;
+  transition: transform 0.55s 0.1s var(--ease-burhan);
+}
+
+.world-panel[data-world="math"]:hover .pm-l1,
+.world-panel[data-world="math"]:focus-within .pm-l1 {
+  transform: scaleX(1);
+}
+
+.pm-l2 {
+  width: 1px;
+  height: 45%;
+  bottom: 0;
+  inset-inline-end: 22%;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  transition: transform 0.45s 0.2s var(--ease-burhan);
+}
+
+.world-panel[data-world="math"]:hover .pm-l2,
+.world-panel[data-world="math"]:focus-within .pm-l2 {
+  transform: scaleY(1);
+}
+
+.panel-motif--math .panel-motif-symbol {
+  position: absolute;
+  bottom: var(--space-4);
+  inset-inline-end: var(--space-5);
+  font-size: 5rem;
+  color: var(--color-accent-math);
+  opacity: 0.1;
+  font-family: serif;
+  line-height: 1;
+  transition: transform 0.6s var(--ease-burhan), opacity 0.6s var(--ease-burhan);
+}
+
+.world-panel[data-world="math"]:hover .panel-motif-symbol {
+  transform: rotate(10deg) scale(1.2);
+  opacity: 0.15;
+}
+
+.panel-motif--science {
+  display: block;
+}
+
+.panel-motif-wave {
+  position: absolute;
+  bottom: 22%;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  height: 40px;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M0,20 C20,0 40,40 60,20 S100,0 120,20 S160,40 180,20 S200,0 220,20' stroke='%23A9762F' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 200px 40px;
+  transform: scaleX(0);
+  transform-origin: inline-start center;
+  transition: transform 0.6s 0.1s var(--ease-burhan);
+}
+
+.world-panel[data-world="science"]:hover .panel-motif-wave,
+.world-panel[data-world="science"]:focus-within .panel-motif-wave {
+  transform: scaleX(1);
+}
+
+.panel-motif--science .panel-motif-symbol {
+  position: absolute;
+  bottom: var(--space-4);
+  inset-inline-end: var(--space-5);
+  font-size: 5rem;
+  color: var(--color-accent-science);
+  opacity: 0.1;
+  font-family: serif;
+  line-height: 1;
+  transition: transform 0.6s var(--ease-burhan), opacity 0.6s var(--ease-burhan);
+}
+
+.world-panel[data-world="science"]:hover .panel-motif-symbol {
+  transform: scale(1.2);
+  opacity: 0.15;
+}
+
+.panel-accent-line {
+  display: block;
+  height: 2px;
+  width: 0;
+  margin-block-end: var(--space-3);
+  transition: width var(--duration-transition) 0.05s var(--ease-burhan);
+}
+
+.world-panel[data-world="math"] .panel-accent-line {
+  background: linear-gradient(90deg, var(--color-accent-math), transparent);
+}
+
+.world-panel[data-world="science"] .panel-accent-line {
+  background: linear-gradient(90deg, var(--color-accent-science), transparent);
+}
+
+.world-panel[data-world="math"]:hover .panel-accent-line,
+.world-panel[data-world="math"]:focus-within .panel-accent-line,
+.world-panel[data-world="science"]:hover .panel-accent-line,
+.world-panel[data-world="science"]:focus-within .panel-accent-line {
+  width: 60px;
+}
+
+.world-panel-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-7);
+  height: 100%;
+  min-height: 340px;
+}
+
+.world-panel-header {
+  margin-block-end: var(--space-8);
+}
+
+.world-panel-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-latin-mono);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  margin-block-end: var(--space-4);
+}
+
+.world-panel[data-world="math"] .world-panel-badge {
+  color: var(--color-accent-math);
+}
+
+.world-panel[data-world="science"] .world-panel-badge {
+  color: var(--color-accent-science);
+}
+
+.world-panel-title {
+  font-size: var(--font-size-2xl);
+  margin-block-end: var(--space-3);
+  color: var(--color-ink);
+  transition: transform var(--duration-standard) var(--ease-burhan),
+    color var(--duration-standard) var(--ease-burhan);
+}
+
+.world-panel[data-world="math"]:hover .world-panel-title,
+.world-panel[data-world="math"]:focus-within .world-panel-title {
+  transform: translateY(-3px);
+  color: var(--color-accent-math);
+}
+
+.world-panel[data-world="science"]:hover .world-panel-title,
+.world-panel[data-world="science"]:focus-within .world-panel-title {
+  transform: translateY(-3px);
+  color: var(--color-accent-science);
+}
+
+.world-panel-description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  max-width: 42ch;
+}
+
+.btn-panel {
+  transform: translateX(0);
+  transition: transform var(--duration-standard) var(--ease-burhan),
+    background-color var(--duration-standard) var(--ease-burhan),
+    box-shadow var(--duration-standard) var(--ease-burhan);
+}
+
+.world-panel[data-world="math"]:hover .btn-panel,
+.world-panel[data-world="math"]:focus-within .btn-panel {
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(46, 62, 116, 0.35);
+}
+
+.world-panel[data-world="science"]:hover .btn-panel,
+.world-panel[data-world="science"]:focus-within .btn-panel {
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(169, 118, 47, 0.35);
+}
+
+[dir="rtl"] .btn-panel {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .world-panel:hover .btn-panel,
+[dir="rtl"] .world-panel:focus-within .btn-panel {
+  transform: translateX(-6px);
+}
+
+.panel-footer {
+  margin-block-start: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .world-panel {
+    transform: none !important;
+  }
+
+  .panel-motif,
+  .pm-l1,
+  .pm-l2,
+  .panel-motif-wave,
+  .panel-accent-line,
+  .world-canvas {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .panel-accent-line {
+    width: 32px !important;
+  }
+
+  .world-panel:hover .world-panel-title,
+  .world-panel:focus-within .world-panel-title,
+  .btn-panel,
+  .world-panel:hover .btn-panel {
+    transform: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. PHILOSOPHY SECTION — Dark Editorial Pause Block
+   -------------------------------------------------------------------------- */
+.philosophy-section {
+  padding-block: var(--space-10) calc(var(--space-10) + var(--space-4));
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--duration-transition) var(--ease-burhan);
+}
+
+
+
+.philosophy-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy-section .container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(140, 107, 51, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+
+
+.philosophy-quote {
+  font-size: clamp(var(--font-size-xl), 3.8vw, var(--font-size-4xl));
+  line-height: var(--line-height-snug);
+  max-width: 26ch;
+  margin-inline: auto;
+  margin-block: var(--space-8);
+  color: var(--color-paper);
+  font-weight: var(--font-weight-regular);
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy-quote .word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s var(--ease-burhan),
+    transform 0.45s var(--ease-burhan);
+}
+
+.philosophy-section.is-revealed .philosophy-quote .word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-quote .word {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. PROOF STAGES SECTION (Question → Reasoning → Understanding)
+   -------------------------------------------------------------------------- */
+.proof-stages-section {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-10);
+  background-color: transparent;
+}
+
+.proof-stages-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-block-start: var(--space-7);
+}
+
+@media (min-width: 1024px) {
+  .proof-stages-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.proof-stage-card {
+  position: relative;
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-top: 4px solid var(--color-ink);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+  transition: border-color var(--duration-standard) var(--ease-burhan),
+    background-color var(--duration-standard) var(--ease-burhan),
+    box-shadow var(--duration-standard) var(--ease-burhan),
+    transform var(--duration-standard) var(--ease-burhan);
+}
+
+.proof-stage-card--math {
+  border-top-color: var(--color-accent-math);
+}
+
+.proof-stage-card--brass {
+  border-top-color: var(--color-brass);
+}
+
+.proof-stage-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-hairline-dark);
+}
+
+.proof-stage-card--math:hover {
+  border-color: var(--color-accent-math);
+  background-color: var(--color-accent-math-soft);
+}
+
+.proof-stage-card--brass:hover {
+  border-color: var(--color-brass);
+}
+
+.stage-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-end: var(--space-4);
+}
+
+.stage-number {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.08em;
+  color: var(--color-ink);
+}
+
+.proof-stage-card--math .stage-number {
+  color: var(--color-accent-math);
+}
+
+.proof-stage-card--brass .stage-number {
+  color: var(--color-brass);
+}
+
+.stage-tag {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-latin-mono);
+  color: var(--color-text-secondary);
+  background-color: var(--color-paper);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-control);
+}
+
+.stage-title {
+  font-size: var(--font-size-xl);
+  margin-block-end: var(--space-3);
+  color: var(--color-ink);
+  line-height: var(--line-height-snug);
+}
+
+.stage-desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  margin-block-end: var(--space-5);
+}
+
+.stage-formula-box {
+  margin-block-start: auto;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-control);
+  font-size: var(--font-size-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.formula-label {
+  color: var(--color-brass);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.04em;
+}
+
+.stage-formula-box code {
+  color: var(--color-ink);
+  font-weight: var(--font-weight-medium);
+}
+
+/* --------------------------------------------------------------------------
+   6. CURRICULUM SECTION (Text-forward Topic List)
+   -------------------------------------------------------------------------- */
+.curriculum-section {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-10);
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-hairline-light);
+}
+
+.curriculum-list {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: var(--space-7);
+  border-top: 1px solid var(--color-hairline-light);
+}
+
+.curriculum-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--color-hairline-light);
+  border-inline-start: 3px solid transparent;
+  padding-inline-start: var(--space-4);
+  transition: background-color var(--duration-standard) var(--ease-burhan),
+    border-color var(--duration-standard) var(--ease-burhan),
+    padding var(--duration-standard) var(--ease-burhan);
+}
+
+@media (min-width: 768px) {
+  .curriculum-row {
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-6);
+    align-items: baseline;
+    padding-inline-start: var(--space-5);
+  }
+}
+
+.curriculum-row:hover {
+  background-color: var(--color-accent-math-soft);
+  border-inline-start-color: var(--color-accent-math);
+}
+
+.curriculum-num {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent-math);
+  letter-spacing: 0.05em;
+}
+
+.curriculum-title {
+  font-size: var(--font-size-xl);
+  margin-block-end: var(--space-2);
+  color: var(--color-ink);
+  transition: color var(--duration-standard) var(--ease-burhan);
+}
+
+.curriculum-row:hover .curriculum-title {
+  color: var(--color-accent-math);
+}
+
+.curriculum-desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 62ch;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. FACULTY & TEACHER INTRODUCTION SECTION — AMMAR YEHIA MOHAMED
+   -------------------------------------------------------------------------- */
+.teacher-intro-section {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-10);
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-hairline-light);
+}
+
+.teacher-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin-block-start: var(--space-7);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .teacher-intro-grid {
+    grid-template-columns: 380px 1fr;
+    gap: var(--space-10);
+  }
+}
+
+.teacher-portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin-inline: auto;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.teacher-portrait-img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.06));
+  transition: transform var(--duration-standard) var(--ease-burhan);
+}
+
+.teacher-portrait-frame:hover .teacher-portrait-img {
+  transform: scale(1.02);
+}
+
+.teacher-signature-divider {
+  font-size: 1.8rem;
+  color: var(--color-brass);
+  line-height: 1;
+  margin-block: var(--space-1);
+}
+
+.teacher-intro-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.teacher-intro-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+  color: var(--color-ink);
+  line-height: var(--line-height-tight);
+}
+
+.teacher-intro-role {
+  font-size: var(--font-size-md);
+  font-family: var(--font-latin-mono);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brass);
+  letter-spacing: 0.06em;
+}
+
+.teacher-intro-quote {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-ink-soft);
+  padding-inline-start: var(--space-5);
+  border-inline-start: 3px solid var(--color-accent-math);
+  margin-block: var(--space-3);
+  font-style: italic;
+}
+
+/* Experience Highlights Strip */
+.experience-highlights-strip {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-block-start: var(--space-8);
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-hairline-light);
+  border-bottom: 1px solid var(--color-hairline-light);
+}
+
+@media (min-width: 640px) {
+  .experience-highlights-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .experience-highlights-strip {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.highlight-label {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-latin-mono);
+  color: var(--color-brass);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.highlight-value {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   8. EXPERIENCE & CV SECTION
+   -------------------------------------------------------------------------- */
+.experience-cv-section {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-10);
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-hairline-light);
+}
+
+.cv-resume-list {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: var(--space-7);
+  border-top: 1px solid var(--color-hairline-light);
+}
+
+.cv-resume-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--color-hairline-light);
+  padding-inline-start: var(--space-4);
+  border-inline-start: 3px solid transparent;
+  transition: background-color var(--duration-standard) var(--ease-burhan),
+    border-color var(--duration-standard) var(--ease-burhan);
+}
+
+@media (min-width: 768px) {
+  .cv-resume-row {
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-6);
+    align-items: baseline;
+    padding-inline-start: var(--space-5);
+  }
+}
+
+.cv-resume-row:hover {
+  background-color: var(--color-accent-math-soft);
+  border-inline-start-color: var(--color-brass);
+}
+
+.cv-num {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-brass);
+  letter-spacing: 0.05em;
+}
+
+.cv-title {
+  font-size: var(--font-size-xl);
+  margin-block-end: var(--space-2);
+  color: var(--color-ink);
+}
+
+.cv-desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 62ch;
+  margin: 0;
+}
+
+.cv-action-wrap {
+  margin-block-start: var(--space-8);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border: 1px solid var(--color-accent-math);
+  background-color: var(--color-paper-alt);
+  color: var(--color-accent-math);
+  font-family: var(--font-latin-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-radius: var(--radius-control);
+  transition: background-color var(--duration-standard) var(--ease-burhan),
+    color var(--duration-standard) var(--ease-burhan),
+    box-shadow var(--duration-standard) var(--ease-burhan);
+}
+
+.btn-cv:hover {
+  background-color: var(--color-accent-math);
+  color: var(--color-paper);
+  box-shadow: 0 8px 24px rgba(46, 62, 116, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   9. TEACHING VIDEOS SECTION
+   -------------------------------------------------------------------------- */
+.teaching-videos-section {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--space-10);
+  background-color: transparent;
+  border-bottom: 1px solid var(--color-hairline-light);
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-7);
+  margin-block-start: var(--space-7);
+}
+
+@media (min-width: 768px) {
+  .videos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+.video-frame-card {
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-top: 3px solid var(--color-accent-math);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color var(--duration-standard) var(--ease-burhan),
+    transform var(--duration-standard) var(--ease-burhan),
+    box-shadow var(--duration-standard) var(--ease-burhan);
+}
+
+.video-frame-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent-math);
+  box-shadow: 0 12px 32px rgba(46, 62, 116, 0.14);
+}
+
+.video-frame-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.video-play-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: rgba(46, 62, 116, 0.85);
+  border: 2px solid var(--color-brass);
+  color: var(--color-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: var(--space-3);
+  transition: transform var(--duration-standard) var(--ease-burhan),
+    background-color var(--duration-standard) var(--ease-burhan);
+}
+
+.video-frame-card:hover .video-play-btn {
+  transform: scale(1.12);
+  background-color: var(--color-accent-math);
+}
+
+.video-topic-tag {
+  position: absolute;
+  top: var(--space-3);
+  inset-inline-start: var(--space-3);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-latin-mono);
+  color: var(--color-brass);
+  background-color: rgba(17, 19, 25, 0.75);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-hairline-dark);
+}
+
+.video-frame-body {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.video-title {
+  font-size: var(--font-size-lg);
+  color: var(--color-ink);
+  margin-block-end: var(--space-2);
+  line-height: var(--line-height-snug);
+}
+
+.video-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. CONTACT PAGE & TEACHER WHATSAPP GRID
+   -------------------------------------------------------------------------- */
+body[data-page="contact"] {
+  background-color: var(--color-paper);
+}
+
+.contact-hero {
+  text-align: center;
+  padding-block: clamp(var(--space-8), 8vh, var(--space-11)) var(--space-8);
+  border-bottom: 1px solid var(--color-hairline-light);
+}
+
+.contact-hero-container {
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+.contact-hero-title {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-block: var(--space-3) var(--space-4);
+  line-height: var(--line-height-tight);
+}
+
+.contact-hero-divider-wrap {
+  margin-block: var(--space-4);
+}
+
+.contact-hero-divider {
+  font-size: 2rem;
+  color: var(--color-brass);
+  opacity: 0.7;
+}
+
+.contact-hero-lead {
+  font-size: clamp(var(--font-size-base), 1.2vw, var(--font-size-lg));
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 58ch;
+  margin-inline: auto;
+}
+
+/* Contact Teachers Grid */
+.contact-grid-section {
+  padding-block: var(--space-10);
+}
+
+.contact-teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-8);
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.contact-card {
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-card, 4px);
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform var(--duration-standard) var(--ease-burhan),
+    box-shadow var(--duration-standard) var(--ease-burhan),
+    border-color var(--duration-standard) var(--ease-burhan);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.contact-card--math {
+  border-top: 4px solid var(--color-accent-math);
+}
+
+.contact-card--science {
+  border-top: 4px solid var(--color-accent-science);
+}
+
+.contact-subject-tag {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: var(--space-1) var(--space-3);
+  border-radius: 100px;
+  margin-block-end: var(--space-5);
+  display: inline-block;
+}
+
+.contact-subject-tag--math {
+  background-color: rgba(46, 62, 116, 0.1);
+  color: var(--color-accent-math);
+}
+
+.contact-subject-tag--science {
+  background-color: rgba(169, 118, 47, 0.1);
+  color: var(--color-accent-science);
+}
+
+[data-theme="dark"] .contact-subject-tag--math {
+  background-color: rgba(104, 130, 216, 0.15);
+  color: var(--color-accent-math-light, #8BA3E8);
+}
+
+[data-theme="dark"] .contact-subject-tag--science {
+  background-color: rgba(221, 163, 78, 0.15);
+  color: var(--color-accent-science-light, #F5CE85);
+}
+
+.contact-portrait-wrap {
+  margin-block-end: var(--space-6);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-portrait-frame {
+  width: 180px;
+  height: 220px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--color-hairline-light);
+  background-color: var(--color-paper);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: border-color var(--duration-standard) var(--ease-burhan);
+}
+
+.contact-card:hover .contact-portrait-frame {
+  border-color: var(--color-brass);
+}
+
+.contact-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--duration-standard) var(--ease-burhan);
+}
+
+.contact-card:hover .contact-portrait-img {
+  transform: scale(1.03);
+}
+
+.contact-teacher-name {
+  font-size: clamp(var(--font-size-xl), 2.5vw, var(--font-size-2xl));
+  color: var(--color-ink);
+  margin-block-end: var(--space-1);
+}
+
+.contact-teacher-role {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-block-end: var(--space-4);
+}
+
+.contact-card-divider {
+  font-size: 1.25rem;
+  color: var(--color-brass);
+  opacity: 0.5;
+  margin-block-end: var(--space-4);
+}
+
+.contact-teacher-intro {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-block-end: var(--space-6);
+  max-width: 38ch;
+}
+
+.contact-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  margin-top: auto;
+}
+
+.contact-phone-display {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+.whatsapp-badge-icon {
+  width: 48px;
+  height: 48px;
+  color: #25D366;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT TEACHER CARD — Individual page teacher contact component
+   -------------------------------------------------------------------------- */
+.contact-teacher-section {
+  text-align: center;
+}
+
+.contact-teacher-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: 540px;
+  margin-inline: auto;
+  padding: var(--space-10) var(--space-8);
+  position: relative;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: 2px;
+  transition: background-color var(--duration-transition) var(--ease-burhan),
+              border-color var(--duration-transition) var(--ease-burhan);
+}
+
+.contact-teacher-card--math {
+  border-top: 3px solid var(--color-accent-math);
+}
+
+.contact-teacher-card--science {
+  border-top: 3px solid var(--color-accent-science);
+}
+
+/* Eyebrow — subject label with flanking lines */
+.contact-teacher-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 200px;
+  margin-block-end: var(--space-2);
+}
+
+.contact-teacher-eyebrow-line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-hairline-light);
+}
+
+.contact-teacher-eyebrow-label {
+  font-family: var(--font-latin-mono);
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+.contact-teacher-card--math .contact-teacher-eyebrow-label {
+  color: var(--color-accent-math);
+}
+
+.contact-teacher-card--science .contact-teacher-eyebrow-label {
+  color: var(--color-accent-science);
+}
+
+/* WhatsApp Icon */
+.contact-teacher-icon {
+  color: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: var(--space-2);
+}
+
+/* Teacher Name */
+.contact-teacher-name {
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-2xl));
+  color: var(--color-ink);
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+/* Role label */
+.contact-teacher-role {
+  font-size: var(--font-size-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Contact message */
+.contact-teacher-message {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  max-width: 40ch;
+  margin: var(--space-2) 0 var(--space-2);
+}
+
+/* Phone number */
+.contact-teacher-phone {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  letter-spacing: 0.04em;
+  margin-top: var(--space-1);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .contact-teacher-card {
+  background-color: var(--color-paper-alt);
+  border-color: var(--color-hairline-dark);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contact-teacher-card {
+    padding: var(--space-8) var(--space-5);
+  }
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-7);
+  background-color: #25D366;
+  color: #000000 !important;
+  font-family: var(--font-latin-mono);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border-radius: var(--radius-control);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 280px;
+  transition: transform var(--duration-standard) var(--ease-burhan),
+    box-shadow var(--duration-standard) var(--ease-burhan),
+    filter var(--duration-standard) var(--ease-burhan);
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  filter: brightness(1.05);
+}
+
+
+/* --------------------------------------------------------------------------
+   11. CLOSING CTA SECTION
+   -------------------------------------------------------------------------- */
+.closing-cta-section {
+  padding-block: var(--space-10) var(--space-9);
+  text-align: center;
+  background-color: var(--color-paper);
+  transition: background-color var(--duration-transition) var(--ease-burhan);
+}
+
+.closing-divider {
+  font-size: 2.5rem;
+  color: var(--color-brass);
+  display: inline-block;
+  opacity: 0.6;
+  animation: closing-divider-breathe 3s var(--ease-burhan) infinite alternate;
+}
+
+@keyframes closing-divider-breathe {
+  from {
+    opacity: 0.3;
+    transform: scaleY(0.9);
+  }
+
+  to {
+    opacity: 0.85;
+    transform: scaleY(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .closing-divider {
+    animation: none !important;
+    opacity: 0.6;
+  }
+}
+
+.closing-cta-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+  margin-block: var(--space-5) var(--space-3);
+  color: var(--color-ink);
+}
+
+.closing-cta-lead {
+  max-width: 52ch;
+  margin-inline: auto;
+  margin-block-end: var(--space-7);
+}
+
+.closing-cta-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.section-padding {
+  padding-block: var(--space-9) var(--space-10);
+}

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science World | BURHAN — عالم العلوم | بُرهان</title>
+  <meta name="description" content="Explore Science World at BURHAN. Guided by Ms. Yasmin Ahmed (ياسمين أحمد). Understand the WHY behind Physics, Chemistry, Biology, natural laws, and empirical discovery.">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/theme.js"></script>
+</head>
+<body data-page="science">
+
+  <!-- ACCESSIBLE SKIP-TO-MAIN LINK -->
+  <a href="#main-content" class="skip-link" data-en="Skip to main content" data-ar="الانتقال إلى المحتوى الرئيسي">Skip to main content</a>
+
+  <!-- CONTINUOUS SCIENCE BACKGROUND CANVAS -->
+  <canvas class="hero-canvas" aria-hidden="true" id="heroCanvas"></canvas>
+
+  <!-- GLOBAL NAVIGATION HEADER (IDENTICAL TO MATHEMATICS.HTML) -->
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Main Navigation">
+      <a href="index.html" class="burhan-wordmark" aria-label="BURHAN Home">
+        BURHAN <span class="burhan-divider">|</span> بُرهان
+      </a>
+
+      <ul class="nav-menu" data-nav-menu>
+        <li><a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a></li>
+        <li><a href="mathematics.html" class="nav-link" data-en="Mathematics" data-ar="الرياضيات">Mathematics</a></li>
+        <li><a href="science.html" class="nav-link is-active" aria-current="page" data-en="Science" data-ar="العلوم">Science</a></li>
+        <li><a href="contact.html" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle (Light / Dark) -->
+        <button type="button" class="theme-toggle-btn" data-theme-toggle aria-label="Switch Theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Language Switcher -->
+        <button type="button" class="lang-toggle-btn" data-lang-toggle aria-label="التحويل إلى العربية">
+          <span data-en="العربية" data-ar="English">العربية</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="nav-toggle-btn" data-nav-toggle aria-expanded="false" aria-label="Open Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN SCIENCE WORLD CONTENT -->
+  <main id="main-content">
+
+    <!-- 01 — SCIENCE HERO SECTION -->
+    <section class="home-hero science-hero" data-hero-section>
+      <!-- Radial Science Discovery Amber glow atmosphere -->
+      <div class="hero-glow hero-glow--science" aria-hidden="true"></div>
+
+      <!-- Accent construction line -->
+      <span class="hero-accent-line hero-accent-line--science" aria-hidden="true"></span>
+
+      <div class="container home-hero-container">
+        <!-- Science Badges -->
+        <div class="hero-badges" data-reveal-hero>
+          <span class="hero-badge hero-badge--science">
+            <span class="hero-badge-dot hero-badge-dot--science"></span>
+            <span data-en="DISCOVERY SYSTEM — AMBER" data-ar="نظام الاستكشاف — كهرماني">DISCOVERY SYSTEM — AMBER</span>
+          </span>
+          <span class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span data-en="EMPIRICAL OBSERVATION" data-ar="رصد واستكشاف تجريبي">EMPIRICAL OBSERVATION</span>
+          </span>
+        </div>
+
+        <span class="section-eyebrow hero-eyebrow" data-reveal-hero
+              data-en="BURHAN | SCIENCE WORLD" data-ar="بُرهان | عالم العلوم">BURHAN | SCIENCE WORLD</span>
+
+        <h1 class="home-hero-title font-display" data-reveal-hero
+            data-en="Science is not a set of facts to memorize. It is the discovery of nature's laws."
+            data-ar="العلوم ليست مجرد حقائق للحفظ، بل هي استكشاف لقوانين الطبيعة.">
+          Science is not a set of facts to memorize. It is the discovery of nature's laws.
+        </h1>
+
+        <p class="home-hero-lead" data-reveal-hero
+           data-en="Explore Physics, Chemistry, and Biology beyond formulaic memory. Guided by Ms. Yasmin Ahmed (ياسمين أحمد), understand how natural phenomena occur and why physical laws hold true."
+           data-ar="استكشف الفيزياء والكيمياء والأحياء أبعد من حفظ القواعد. تحت إشراف الأستاذة ياسمين أحمد، افهم كيف تحدث الظواهر الطبيعية ولماذا تصح القوانين الفيزيائية.">
+          Explore Physics, Chemistry, and Biology beyond formulaic memory. Guided by Ms. Yasmin Ahmed (ياسمين أحمد), understand how natural phenomena occur and why physical laws hold true.
+        </p>
+
+        <!-- Scientific Discovery Step Indicator Bar -->
+        <div class="hero-proof-bar" data-reveal-hero aria-hidden="true">
+          <span class="hero-proof-step font-mono" data-en="01 — OBSERVATION" data-ar="٠١ — الملاحظة">01 — OBSERVATION</span>
+          <span class="hero-proof-sep burhan-divider">|</span>
+          <span class="hero-proof-step font-mono" data-en="02 — HYPOTHESIS" data-ar="٠٢ — الفرضية والتجريب">02 — HYPOTHESIS</span>
+          <span class="hero-proof-sep burhan-divider">|</span>
+          <span class="hero-proof-step font-mono" data-en="03 — NATURAL LAW" data-ar="٠٣ — القانون الطبيعي">03 — NATURAL LAW</span>
+        </div>
+
+        <div class="hero-cta-row" data-reveal-hero>
+          <a href="#teacher-intro" class="btn btn-science">
+            <span data-en="Meet the Educator" data-ar="تعرّف على المعلمة">Meet the Educator</span>
+            <svg class="icon-directional" width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-inline-start: var(--space-2);">
+              <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#curriculum" class="btn btn-ghost" data-en="Curriculum Modules" data-ar="وحدات المنهج">
+            Curriculum Modules
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — OBSERVATION → HYPOTHESIS → NATURAL LAW -->
+    <section class="proof-stages-section section-padding">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <span class="section-eyebrow" data-en="The BURHAN Methodology" data-ar="منهجية بُرهان">The BURHAN Methodology</span>
+          <h2 class="section-title font-display"
+              data-en="A natural law discovered step by step."
+              data-ar="قانونٌ طبيعي يُكتشف خطوة بخطوة.">
+            A natural law discovered step by step.
+          </h2>
+          <p class="section-lead"
+             data-en="We reject formula recitation. Every scientific phenomenon is presented through three structured stages of empirical discovery."
+             data-ar="نرفض تكرار القواعد الصماء. يُقدَّم كل موضوع علمي من خلال ثلاث مراحل هيكلية من الاستكشاف التجريبي.">
+            We reject formula recitation. Every scientific phenomenon is presented through three structured stages of empirical discovery.
+          </p>
+        </div>
+
+        <!-- 3 Structured Stages -->
+        <div class="proof-stages-grid">
+
+          <!-- STAGE 01 — OBSERVATION -->
+          <article class="proof-stage-card" data-reveal data-reveal-delay="0">
+            <div class="stage-card-header">
+              <span class="stage-number font-mono" data-en="01 | OBSERVATION" data-ar="٠١ | الملاحظة">01 | OBSERVATION</span>
+              <span class="stage-tag" data-en="The Phenomenon" data-ar="رصد الظاهرة">The Phenomenon</span>
+            </div>
+            <h3 class="stage-title font-display"
+                data-en="The Discovery Begins with Asking Why"
+                data-ar="تبدأ الرحلة بطرح سؤال: لماذا؟">
+              The Discovery Begins with Asking Why
+            </h3>
+            <p class="stage-desc"
+               data-en="We start not with an equation to memorize, but with observing a physical event, chemical reaction, or biological system to identify underlying patterns."
+               data-ar="لا نبدأ بمعادلة للحفظ، بل بملاحظة حدث فيزيائي، تفاعل كيميائي، أو نظام حيوي لتحديد الأنماط الجوهرية.">
+              We start not with an equation to memorize, but with observing a physical event, chemical reaction, or biological system to identify underlying patterns.
+            </p>
+            <div class="stage-formula-box font-mono" aria-hidden="true">
+              <span class="formula-label" data-en="Observed Phenomenon:" data-ar="الظاهرة المرصودة:">Observed Phenomenon:</span>
+              <code>Object accelerates under force  →  Why F = ma?</code>
+            </div>
+          </article>
+
+          <!-- STAGE 02 — HYPOTHESIS -->
+          <article class="proof-stage-card proof-stage-card--math" data-reveal data-reveal-delay="140">
+            <div class="stage-card-header">
+              <span class="stage-number font-mono" data-en="02 | HYPOTHESIS" data-ar="٠٢ | الفرضية والتجريب">02 | HYPOTHESIS</span>
+              <span class="stage-tag stage-tag--math" data-en="Controlled Testing" data-ar="التجريب المنضبط">Controlled Testing</span>
+            </div>
+            <h3 class="stage-title font-display"
+                data-en="Testing Variables &amp; Formulating Models"
+                data-ar="اختبار المتغيرات وبناء النماذج">
+              Testing Variables &amp; Formulating Models
+            </h3>
+            <p class="stage-desc"
+               data-en="Step by step, we isolate physical forces, chemical reactants, and cellular processes until cause and effect necessitate the mathematical model."
+               data-ar="خطوة بخطوة، نعزل القوى الفيزيائية، المتفاعلات الكيميائية، والعمليات الخلوية حتى يستلزم السبب والنتيجة النموذج الرياضي.">
+              Step by step, we isolate physical forces, chemical reactants, and cellular processes until cause and effect necessitate the mathematical model.
+            </p>
+            <div class="stage-formula-box font-mono" aria-hidden="true">
+              <span class="formula-label" data-en="Experimental Process:" data-ar="عملية التجريب:">Experimental Process:</span>
+              <code>F = ma &nbsp;|&nbsp; PV = nRT &nbsp;|&nbsp; E = mc²</code>
+            </div>
+          </article>
+
+          <!-- STAGE 03 — NATURAL LAW -->
+          <article class="proof-stage-card proof-stage-card--brass" data-reveal data-reveal-delay="280">
+            <div class="stage-card-header">
+              <span class="stage-number font-mono" data-en="03 | NATURAL LAW" data-ar="٠٣ | القانون الطبيعي">03 | NATURAL LAW</span>
+              <span class="stage-tag stage-tag--brass" data-en="Universal Principle" data-ar="القانون الكلي">Universal Principle</span>
+            </div>
+            <h3 class="stage-title font-display"
+                data-en="The Law Rendered Self-Evident"
+                data-ar="القانون الطبيعي يتجلى بوضوح كلي">
+              The Law Rendered Self-Evident
+            </h3>
+            <p class="stage-desc"
+               data-en="The formula is no longer a trick remembered for an exam; it is a permanent mental model of how the physical universe operates."
+               data-ar="لم تُعد المعادلة حيلة تُحفظ للامتحان، بل أصبحت نموذجاً فكرياً دائماً لكيفية عمل الكون الفيزيائي.">
+              The formula is no longer a trick remembered for an exam; it is a permanent mental model of how the physical universe operates.
+            </p>
+            <div class="stage-formula-box font-mono" aria-hidden="true">
+              <span class="formula-label" data-en="Conclusion:" data-ar="النتيجة:">Conclusion:</span>
+              <code>Natural Principle Verified  |  القانون الطبيعي المؤكد</code>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — TEACHER INTRODUCTION — YASMIN AHMED -->
+    <section id="teacher-intro" class="teacher-intro-section section-padding" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Science Faculty" data-ar="الهيئة التعليمية للعلوم">Science Faculty</span>
+          <h2 class="section-title font-display"
+              data-en="Meet the Educator"
+              data-ar="تعرّف على المعلمة">
+            Meet the Educator
+          </h2>
+          <p class="section-lead"
+             data-en="A dedicated educator focusing on building true scientific understanding before memorizing rules."
+             data-ar="معلمة مكرسة لبناء الفهم العلمي الحقيقي قبل حفظ القواعد.">
+            A dedicated educator focusing on building true scientific understanding before memorizing rules.
+          </p>
+        </div>
+
+        <div class="teacher-intro-grid">
+          <!-- Portrait Frame (Slide-in Reveal Animation) -->
+          <div class="teacher-portrait-frame" data-reveal-slide>
+            <img src="images/teachers/yasmin.png"
+                 alt="Yasmin Ahmed — Science Educator | ياسمين أحمد — معلمة العلوم"
+                 class="teacher-portrait-img"
+                 loading="eager">
+          </div>
+
+          <!-- Name & Short Intro Body -->
+          <div class="teacher-intro-body" data-reveal data-reveal-delay="160">
+            <h3 class="teacher-intro-title font-display" data-en="Yasmin Ahmed" data-ar="ياسمين أحمد">
+              Yasmin Ahmed
+            </h3>
+
+            <div class="teacher-signature-divider" aria-hidden="true">
+              <span class="burhan-divider">|</span>
+            </div>
+
+            <span class="teacher-intro-role" data-en="Science Educator" data-ar="معلمة العلوم">
+              Science Educator
+            </span>
+
+            <blockquote class="teacher-intro-quote font-display"
+                        data-en="“A Science educator dedicated to building inquiry-based understanding before memorizing rules, simplifying complex physical phenomena, chemical reactions, and biological concepts into clear logical principles.”"
+                        data-ar="«معلمة علوم تهتم ببناء الفهم الاستكشافي القائم على التجربة والملاحظة، وتحويل الظواهر الطبيعية والتفاعلات الكيميائية والمفاهيم البيولوجية إلى معرفة منطقية راسخة.»">
+              “A Science educator dedicated to building inquiry-based understanding before memorizing rules, simplifying complex physical phenomena, chemical reactions, and biological concepts into clear logical principles.”
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- EXPERIENCE HIGHLIGHTS STRIP -->
+        <div class="experience-highlights-strip" data-reveal data-reveal-delay="240">
+          <div class="highlight-item">
+            <span class="highlight-label" data-en="SPECIALIZATION" data-ar="التخصص والتأهيل">SPECIALIZATION</span>
+            <span class="highlight-value" data-en="General &amp; Applied Science" data-ar="العلوم العامة والتطبيقية">General &amp; Applied Science</span>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-label" data-en="EXPERIENCE" data-ar="سنوات الخبرة">EXPERIENCE</span>
+            <span class="highlight-value" data-en="[ To Be Added ]" data-ar="[ سيتم الإضافة قريباً ]">[ To Be Added ]</span>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-label" data-en="SCHOOLS &amp; ORGS" data-ar="المدارس والمؤسسات">SCHOOLS &amp; ORGS</span>
+            <span class="highlight-value" data-en="[ To Be Added ]" data-ar="[ سيتم الإضافة قريباً ]">[ To Be Added ]</span>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-label" data-en="STEM &amp; INT'L" data-ar="التعليم الدولي وSTEM">STEM &amp; INT'L</span>
+            <span class="highlight-value" data-en="[ To Be Added ]" data-ar="[ سيتم الإضافة قريباً ]">[ To Be Added ]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — FULL TEACHER PROFILE / EXPERIENCE & CV -->
+    <section id="cv" class="experience-cv-section section-padding" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Educator Background &amp; Profile" data-ar="ملف المعلمة والخلفية الأكاديمية">Educator Background &amp; Profile</span>
+          <h2 class="section-title font-display"
+              data-en="About the Educator &amp; Experience"
+              data-ar="عن المعلمة والخبرة المهنية">
+            About the Educator &amp; Experience
+          </h2>
+          <p class="section-lead"
+             data-en="A transparent overview of educational philosophy, specialization, and upcoming CV document connection."
+             data-ar="نظرة عامة شفافة على الفلسفة التعليمية، التخصص، وتجهيز ملف السيرة الذاتية.">
+            A transparent overview of educational philosophy, specialization, and upcoming CV document connection.
+          </p>
+        </div>
+
+        <!-- Editorial Résumé List -->
+        <div class="cv-resume-list">
+
+          <!-- Item 01 -->
+          <div class="cv-resume-row" data-reveal data-reveal-delay="0">
+            <div class="cv-num font-mono" data-en="01 |" data-ar="٠١ |">01 |</div>
+            <div>
+              <h3 class="cv-title font-display" data-en="Teaching Philosophy &amp; Pedagogy" data-ar="الفلسفة التعليمية والتربوية">
+                Teaching Philosophy &amp; Pedagogy
+              </h3>
+              <p class="cv-desc"
+                 data-en="Fostering deep inquiry-based learning, controlled experimentation, and empirical comprehension over mechanical memorization."
+                 data-ar="تعزيز التعلم الاستكشافي القائم على التجربة، الاختبار المنضبط، والإدراك التجريبي بدلاً من الحفظ الآلي.">
+                Fostering deep inquiry-based learning, controlled experimentation, and empirical comprehension over mechanical memorization.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 02 -->
+          <div class="cv-resume-row" data-reveal data-reveal-delay="100">
+            <div class="cv-num font-mono" data-en="02 |" data-ar="٠٢ |">02 |</div>
+            <div>
+              <h3 class="cv-title font-display" data-en="Teaching Experience &amp; Positions" data-ar="الخبرة التدريسية والمناصب">
+                Teaching Experience &amp; Positions
+              </h3>
+              <p class="cv-desc"
+                 data-en="[ Teaching Experience Details — To Be Added Upon Verification ]"
+                 data-ar="[ تفاصيل الخبرة التدريسية — سيتم إضافتها فور تأكيد البيانات ]">
+                [ Teaching Experience Details — To Be Added Upon Verification ]
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 03 -->
+          <div class="cv-resume-row" data-reveal data-reveal-delay="200">
+            <div class="cv-num font-mono" data-en="03 |" data-ar="٠٣ |">03 |</div>
+            <div>
+              <h3 class="cv-title font-display" data-en="Schools &amp; Educational Organizations" data-ar="المدارس والمؤسسات التعليمية">
+                Schools &amp; Educational Organizations
+              </h3>
+              <p class="cv-desc"
+                 data-en="[ Educational Institutions &amp; School Background — To Be Added ]"
+                 data-ar="[ خلفية المؤسسات التعليمية والمدارس — سيتم الإضافة قريباً ]">
+                [ Educational Institutions &amp; School Background — To Be Added ]
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 04 -->
+          <div class="cv-resume-row" data-reveal data-reveal-delay="300">
+            <div class="cv-num font-mono" data-en="04 |" data-ar="٠٤ |">04 |</div>
+            <div>
+              <h3 class="cv-title font-display" data-en="STEM &amp; International Curricula" data-ar="التعليم الدولي ومناهج STEM">
+                STEM &amp; International Curricula
+              </h3>
+              <p class="cv-desc"
+                 data-en="[ International Secondary School &amp; STEM Curriculum Specialization — To Be Added ]"
+                 data-ar="[ تخصص المناهج الثانوية الدولية وSTEM — سيتم الإضافة قريباً ]">
+                [ International Secondary School &amp; STEM Curriculum Specialization — To Be Added ]
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- VIEW FULL CV Button -->
+        <div class="cv-action-wrap" data-reveal data-reveal-delay="400">
+          <a href="#cv-document-placeholder" class="btn-cv" data-cv-placeholder="true"
+             aria-label="View Teacher Full CV Document Placeholder">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            <span data-en="VIEW FULL CV (DOCUMENT PLACEHOLDER)" data-ar="عرض السيرة الذاتية (ملف مخصص)">VIEW FULL CV (DOCUMENT PLACEHOLDER)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — TEACHING VIDEOS -->
+    <section id="videos" class="teaching-videos-section section-padding" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Teaching Demonstrations" data-ar="فيديوهات الشرح">Teaching Demonstrations</span>
+          <h2 class="section-title font-display"
+              data-en="Teaching Videos"
+              data-ar="فيديوهات الشرح">
+            Teaching Videos
+          </h2>
+          <p class="section-lead"
+             data-en="Watch sample lesson breakdowns demonstrating our discovery-based approach before contacting the educator."
+             data-ar="شاهد عينات من شروحات الدروس التي توضح أسلوبنا القائم على الاستكشاف قبل التواصل مع المعلمة.">
+            Watch sample lesson breakdowns demonstrating our discovery-based approach before contacting the educator.
+          </p>
+        </div>
+
+        <!-- Editorial Video Grid -->
+        <div class="videos-grid">
+
+          <!-- Video Card 01 -->
+          <article class="video-frame-card" data-reveal data-reveal-delay="0">
+            <div class="video-frame-media" aria-label="Video lesson placeholder: Understanding Force &amp; Motion">
+              <span class="video-topic-tag" data-en="PHYSICS" data-ar="الفيزياء">PHYSICS</span>
+              <div class="video-play-btn" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </div>
+              <span class="font-mono" style="font-size: var(--font-size-xs); opacity: 0.8;" data-en="[ Video Lesson Placeholder ]" data-ar="[ فيديو تعليمي مخصص ]">[ Video Lesson Placeholder ]</span>
+            </div>
+            <div class="video-frame-body">
+              <h3 class="video-title font-display" data-en="Understanding Force &amp; Motion (F = ma)" data-ar="فهم القوة والحركة (F = ma)">
+                Understanding Force &amp; Motion (F = ma)
+              </h3>
+              <p class="video-desc"
+                 data-en="Demonstrating how acceleration directly depends on net force and mass through practical physical setups."
+                 data-ar="توضيح كيفية اعتماد التسارع بشكل مباشر على القوة المحصلة والكتلة عبر تجارب فيزيائية جليّة.">
+                Demonstrating how acceleration directly depends on net force and mass through practical physical setups.
+              </p>
+            </div>
+          </article>
+
+          <!-- Video Card 02 -->
+          <article class="video-frame-card" data-reveal data-reveal-delay="140">
+            <div class="video-frame-media" aria-label="Video lesson placeholder: Chemical Bonding">
+              <span class="video-topic-tag" data-en="CHEMISTRY" data-ar="الكيمياء">CHEMISTRY</span>
+              <div class="video-play-btn" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </div>
+              <span class="font-mono" style="font-size: var(--font-size-xs); opacity: 0.8;" data-en="[ Video Lesson Placeholder ]" data-ar="[ فيديو تعليمي مخصص ]">[ Video Lesson Placeholder ]</span>
+            </div>
+            <div class="video-frame-body">
+              <h3 class="video-title font-display" data-en="Ionic vs. Covalent Chemical Bonds" data-ar="الروابط الأيونية مقابل التساهمية">
+                Ionic vs. Covalent Chemical Bonds
+              </h3>
+              <p class="video-desc"
+                 data-en="Visualizing valence electron transfers and sharing to understand molecular stability and compound behavior."
+                 data-ar="تجسيد انتقال وإلكترونات التكافؤ وفهم استقرار الجزيئات وسلوك المركبات الكيميائية.">
+                Visualizing valence electron transfers and sharing to understand molecular stability and compound behavior.
+              </p>
+            </div>
+          </article>
+
+          <!-- Video Card 03 -->
+          <article class="video-frame-card" data-reveal data-reveal-delay="280">
+            <div class="video-frame-media" aria-label="Video lesson placeholder: Cell Structure">
+              <span class="video-topic-tag" data-en="BIOLOGY" data-ar="الأحياء">BIOLOGY</span>
+              <div class="video-play-btn" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </div>
+              <span class="font-mono" style="font-size: var(--font-size-xs); opacity: 0.8;" data-en="[ Video Lesson Placeholder ]" data-ar="[ فيديو تعليمي مخصص ]">[ Video Lesson Placeholder ]</span>
+            </div>
+            <div class="video-frame-body">
+              <h3 class="video-title font-display" data-en="Cellular Organelles &amp; Energy Transfer" data-ar="عضيات الخلية ونقل الطاقة">
+                Cellular Organelles &amp; Energy Transfer
+              </h3>
+              <p class="video-desc"
+                 data-en="Exploring mitochondria, cell membranes, and ATP energy production inside living cells."
+                 data-ar="استكشاف الميتوكندريا وأغشية الخلايا وإنتاج طاقة ATP داخل الخلايا الحية.">
+                Exploring mitochondria, cell membranes, and ATP energy production inside living cells.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 — SCIENCE CURRICULUM -->
+    <section id="curriculum" class="curriculum-section section-padding" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Curriculum &amp; Topic Modules" data-ar="وحدات المنهج والموضوعات">Curriculum &amp; Topic Modules</span>
+          <h2 class="section-title font-display"
+              data-en="Structured disciplines of empirical scientific discovery."
+              data-ar="فروع منهجة للتفكير والاستكشاف العلمي.">
+            Structured disciplines of empirical scientific discovery.
+          </h2>
+          <p class="section-lead"
+             data-en="Each module is built around fundamental principles, physical experiments, and deep conceptual understanding."
+             data-ar="تُبنى كل وحدة حول المبادئ الأساسية، التجارب الفيزيائية، والفهم المفاهيمي العميق.">
+            Each module is built around fundamental principles, physical experiments, and deep conceptual understanding.
+          </p>
+        </div>
+
+        <!-- Text-forward Topic List -->
+        <div class="curriculum-list">
+
+          <div class="curriculum-row" data-reveal data-reveal-delay="0">
+            <div class="curriculum-meta">
+              <span class="curriculum-num font-mono" data-en="01 |" data-ar="٠١ |">01 |</span>
+            </div>
+            <div class="curriculum-content">
+              <h3 class="curriculum-title font-display" data-en="Physics &amp; Physical Laws (Forces, Energy, Waves)" data-ar="الفيزياء والقوانين الفيزيائية (القوى، الطاقة، الأمواج)">
+                Physics &amp; Physical Laws (Forces, Energy, Waves)
+              </h3>
+              <p class="curriculum-desc"
+                 data-en="Newtonian mechanics, work and energy conservation, wave behavior, light optics, and electric circuit fundamentals."
+                 data-ar="ميكانيكا نيو تن، بقاء الشغل والطاقة، سلوك الأمواج، بصريات الضوء، ومبادئ الدوائر الكهربائية.">
+                Newtonian mechanics, work and energy conservation, wave behavior, light optics, and electric circuit fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <div class="curriculum-row" data-reveal data-reveal-delay="100">
+            <div class="curriculum-meta">
+              <span class="curriculum-num font-mono" data-en="02 |" data-ar="٠٢ |">02 |</span>
+            </div>
+            <div class="curriculum-content">
+              <h3 class="curriculum-title font-display" data-en="Chemistry &amp; Matter (Atomic Structure, Reactions, Bonding)" data-ar="الكيمياء وتكعيب المادة (التركيب الذري، التفاعلات، الروابط)">
+                Chemistry &amp; Matter (Atomic Structure, Reactions, Bonding)
+              </h3>
+              <p class="curriculum-desc"
+                 data-en="Subatomic particles, periodic trends, ionic and covalent bonding, chemical equations, stoichiometry, and acids &amp; bases."
+                 data-ar="الجسيمات دون الذرية، تدرج الخواص في الجدول الدوري، الروابط الأيونية والتساهمية، معادلات التفاعل، والمحاليل والأحماض.">
+                Subatomic particles, periodic trends, ionic and covalent bonding, chemical equations, stoichiometry, and acids &amp; bases.
+              </p>
+            </div>
+          </div>
+
+          <div class="curriculum-row" data-reveal data-reveal-delay="200">
+            <div class="curriculum-meta">
+              <span class="curriculum-num font-mono" data-en="03 |" data-ar="٠٣ |">03 |</span>
+            </div>
+            <div class="curriculum-content">
+              <h3 class="curriculum-title font-display" data-en="Biology &amp; Living Systems (Cell Biology, Genetics, Ecosystems)" data-ar="الأحياء والأنظمة الحية (الخلية، الوراثة، الأنظمة البيئية)">
+                Biology &amp; Living Systems (Cell Biology, Genetics, Ecosystems)
+              </h3>
+              <p class="curriculum-desc"
+                 data-en="Cellular structure and function, DNA replication, principles of inheritance, human organ systems, and ecological balance."
+                 data-ar="تركيب الخلية ووظائفها، تضاعف الحمض النووي DNA، مبادئ الوراثة، أجهزة الجسم البشري، والتوازن البيئي.">
+                Cellular structure and function, DNA replication, principles of inheritance, human organ systems, and ecological balance.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — CONTACT THE TEACHER -->
+    <section id="contact" class="contact-teacher-section section-padding" data-reveal>
+      <div class="container">
+        <div class="contact-teacher-card contact-teacher-card--science">
+
+          <span class="contact-teacher-eyebrow" aria-hidden="true">
+            <span class="contact-teacher-eyebrow-line"></span>
+            <span class="contact-teacher-eyebrow-label" data-en="Science" data-ar="العلوم">Science</span>
+            <span class="contact-teacher-eyebrow-line"></span>
+          </span>
+
+          <div class="contact-teacher-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 0 0 1.333 4.993L2 22l5.233-1.337a9.96 9.96 0 0 0 4.779 1.216h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.667-1.037-5.176-2.922-7.062A9.925 9.925 0 0 0 12.012 2zm0 18.163h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.82.836-3.056-.197-.313a8.27 8.27 0 0 1-1.267-4.464c0-4.568 3.718-8.286 8.291-8.286 2.213 0 4.293.863 5.858 2.43 1.564 1.566 2.426 3.647 2.425 5.86 0 4.569-3.717 8.286-8.284 8.286z"/>
+            </svg>
+          </div>
+
+          <h2 class="contact-teacher-name font-display"
+              data-en="Yasmin Ahmed"
+              data-ar="ياسمين أحمد">
+            Yasmin Ahmed
+          </h2>
+
+          <p class="contact-teacher-role font-mono"
+             data-en="Science Educator"
+             data-ar="معلمة العلوم">
+            Science Educator
+          </p>
+
+          <p class="contact-teacher-message"
+             data-en="Talk directly with Ms. Yasmin regarding Science classes, lab schedules, and learning guidance."
+             data-ar="تحدث مباشرة مع الأستاذة ياسمين بشأن مواعيد دروس العلوم، الجداول، والإرشاد التعليمي.">
+            Talk directly with Ms. Yasmin regarding Science classes, lab schedules, and learning guidance.
+          </p>
+
+          <!-- WHATSAPP BUTTON (Direct WhatsApp link with verified number 01204213753) -->
+          <a href="https://wa.me/201204213753"
+             target="_blank" rel="noopener noreferrer"
+             class="btn-whatsapp"
+             aria-label="Contact Ms. Yasmin Ahmed on WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 0 0 1.333 4.993L2 22l5.233-1.337a9.96 9.96 0 0 0 4.779 1.216h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.667-1.037-5.176-2.922-7.062A9.925 9.925 0 0 0 12.012 2zm0 18.163h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.82.836-3.056-.197-.313a8.27 8.27 0 0 1-1.267-4.464c0-4.568 3.718-8.286 8.291-8.286 2.213 0 4.293.863 5.858 2.43 1.564 1.566 2.426 3.647 2.425 5.86 0 4.569-3.717 8.286-8.284 8.286z"/>
+            </svg>
+            <span data-en="Contact via WhatsApp" data-ar="تواصل مع المعلمة عبر WhatsApp">Contact via WhatsApp</span>
+          </a>
+
+          <span class="contact-teacher-phone font-mono"
+                data-en="0120 4213753"
+                data-ar="0120 4213753">
+            0120 4213753
+          </span>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 08 — CLOSING CTA SECTION -->
+    <section class="closing-cta-section" data-reveal>
+      <div class="container">
+        <div class="section-divider" aria-hidden="true">
+          <span class="burhan-divider closing-divider">|</span>
+        </div>
+        <h2 class="closing-cta-title font-display"
+            data-en="UNDERSTAND THE WHY."
+            data-ar="فهم السبب الجوهري.">
+          UNDERSTAND THE WHY.
+        </h2>
+        <p class="section-lead closing-cta-lead"
+           data-en="Explore the principles of Science or reach out directly to the teacher."
+           data-ar="استكشف مبادئ العلوم أو تواصل مباشرة مع المعلمة.">
+          Explore the principles of Science or reach out directly to the teacher.
+        </p>
+
+        <div class="closing-cta-actions">
+          <a href="#contact" class="btn btn-science" data-en="Talk to the Educator" data-ar="تحدث مع المعلمة">Talk to the Educator</a>
+          <a href="mathematics.html" class="btn btn-math" data-en="Mathematics World" data-ar="عالم الرياضيات">Mathematics World</a>
+          <a href="index.html" class="btn btn-secondary" data-en="Back to Home" data-ar="العودة للرئيسية">Back to Home</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 09 — GLOBAL FOOTER (IDENTICAL TO MATHEMATICS.HTML) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="burhan-wordmark">
+            BURHAN <span class="burhan-divider">|</span> بُرهان
+          </a>
+          <p data-en="An educational brand focused on helping students understand the WHY behind Mathematics and Science."
+             data-ar="علامة تجارية تعليمية تركز على مساعدة الطلاب على فهم السبب الجوهري وراء الرياضيات والعلوم.">
+            An educational brand focused on helping students understand the WHY behind Mathematics and Science.
+          </p>
+        </div>
+        <div>
+          <ul class="footer-nav">
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="mathematics.html" class="nav-link" data-en="Mathematics World" data-ar="عالم الرياضيات">Mathematics World</a></li>
+            <li><a href="science.html" class="nav-link" data-en="Science World" data-ar="عالم العلوم">Science World</a></li>
+            <li><a href="contact.html" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-en="Contact Placeholder — Details to be announced" data-ar="مساحة مخصصة لمعلومات التواصل — سيتم الإعلان عنها">
+          Contact Placeholder — Details to be announced
+        </span>
+        <span data-en="© 2026 BURHAN | بُرهان. All rights reserved." data-ar="© 2026 بُرهان | BURHAN. جميع الحقوق محفوظة.">
+          © 2026 BURHAN | بُرهان. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

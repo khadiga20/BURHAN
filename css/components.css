@@ -1,0 +1,566 @@
+/* ==========================================================================
+   BURHAN | بُرهان — Shared Global Components
+   Wordmark, Navigation, Theme Toggle, World Switcher, Buttons, Headings, Teacher Card, Footer
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. WORDMARK LOCKUP & DIVIDER MOTIF
+   -------------------------------------------------------------------------- */
+.burhan-wordmark {
+  display: inline-flex;
+  align-items: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-xl);
+  color: var(--color-ink);
+  letter-spacing: normal;
+  text-decoration: none;
+  line-height: 1;
+  transition: color var(--duration-transition) var(--ease-burhan);
+}
+
+.site-footer .burhan-wordmark {
+  color: var(--color-paper);
+}
+
+.burhan-divider {
+  display: inline-block;
+  color: var(--color-brass);
+  font-weight: var(--font-weight-regular);
+  margin-inline: var(--space-2);
+  user-select: none;
+  transition: color var(--duration-transition) var(--ease-burhan);
+}
+
+/* Full Section Separator with Divider Motif */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-block: var(--space-8);
+  width: 100%;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-hairline-light);
+  transition: background-color var(--duration-transition) var(--ease-burhan);
+}
+
+.section-divider .burhan-divider {
+  margin-inline: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL NAVIGATION, THEME TOGGLE & MOBILE MENU
+   -------------------------------------------------------------------------- */
+.site-header {
+  width: 100%;
+  background-color: var(--color-paper);
+  border-bottom: 1px solid var(--color-hairline-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color var(--duration-transition) var(--ease-burhan),
+              border-color var(--duration-transition) var(--ease-burhan),
+              box-shadow var(--duration-transition) var(--ease-burhan);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--color-ink);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  padding-block: var(--space-2);
+  position: relative;
+  transition: color var(--duration-micro) var(--ease-burhan);
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--color-brass);
+}
+
+.nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
+  height: 2px;
+  background-color: var(--color-brass);
+  border-radius: 1px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Theme Toggle Button Component */
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--color-hairline-light);
+  color: var(--color-ink);
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--space-2);
+  cursor: pointer;
+  border-radius: var(--radius-control);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--duration-micro) var(--ease-burhan),
+              border-color var(--duration-micro) var(--ease-burhan),
+              color var(--duration-micro) var(--ease-burhan),
+              transform var(--duration-micro) var(--ease-burhan);
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--color-paper-alt);
+  border-color: var(--color-brass);
+  color: var(--color-brass);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.theme-toggle-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--duration-standard) var(--ease-burhan);
+}
+
+.theme-toggle-btn:hover svg {
+  transform: rotate(20deg);
+}
+
+/* Mobile Nav Toggle Button */
+.nav-toggle-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--color-hairline-light);
+  color: var(--color-ink);
+  min-width: 44px;
+  min-height: 44px;
+  padding: var(--space-2);
+  cursor: pointer;
+  border-radius: var(--radius-control);
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--duration-micro) var(--ease-burhan),
+              border-color var(--duration-micro) var(--ease-burhan);
+}
+
+.nav-toggle-btn:hover {
+  background-color: var(--color-paper-alt);
+  border-color: var(--color-brass);
+}
+
+.nav-toggle-btn:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767px) {
+  .nav-toggle-btn {
+    display: inline-flex;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    background-color: var(--color-paper);
+    border-bottom: 1px solid var(--color-hairline-light);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--space-5) var(--gutter-mobile);
+    gap: var(--space-4);
+    display: none;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-menu.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    font-size: var(--font-size-md);
+    padding-block: var(--space-3);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. IN-CONTEXT WORLD SWITCHER (Mathematics ↔ Science)
+   -------------------------------------------------------------------------- */
+.world-switcher {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-control);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: background-color var(--duration-transition) var(--ease-burhan),
+              border-color var(--duration-transition) var(--ease-burhan);
+}
+
+.world-switcher-item {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  padding-inline: var(--space-2);
+  transition: color var(--duration-micro) var(--ease-burhan);
+}
+
+.world-switcher-item:hover {
+  color: var(--color-ink);
+}
+
+.world-switcher-item.is-active[data-world="math"] {
+  color: var(--color-accent-math);
+  font-weight: var(--font-weight-bold);
+}
+
+.world-switcher-item.is-active[data-world="science"] {
+  color: var(--color-accent-science);
+  font-weight: var(--font-weight-bold);
+}
+
+/* --------------------------------------------------------------------------
+   4. BUTTON SYSTEM
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color var(--duration-standard) var(--ease-burhan),
+              border-color var(--duration-standard) var(--ease-burhan),
+              color var(--duration-standard) var(--ease-burhan),
+              transform var(--duration-micro) var(--ease-burhan),
+              box-shadow var(--duration-standard) var(--ease-burhan);
+}
+
+:lang(ar) .btn {
+  font-family: var(--font-arabic-body);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  border-color: var(--color-ink);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-ink-soft);
+  border-color: var(--color-ink-soft);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-hairline-light);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-paper-alt);
+  border-color: var(--color-brass);
+  color: var(--color-brass);
+}
+
+.btn-math {
+  background-color: var(--color-accent-math);
+  color: #FFFFFF;
+  border-color: var(--color-accent-math);
+}
+
+.btn-math:hover {
+  background-color: #212E57;
+  border-color: #212E57;
+  box-shadow: 0 6px 20px rgba(46, 62, 116, 0.35);
+}
+
+[data-theme="dark"] .btn-math:hover {
+  background-color: #829BF3;
+  border-color: #829BF3;
+}
+
+.btn-science {
+  background-color: var(--color-accent-science);
+  color: #FFFFFF;
+  border-color: var(--color-accent-science);
+}
+
+.btn-science:hover {
+  background-color: #885D23;
+  border-color: #885D23;
+  box-shadow: 0 6px 20px rgba(169, 118, 47, 0.35);
+}
+
+[data-theme="dark"] .btn-science:hover {
+  background-color: #F0B863;
+  border-color: #F0B863;
+}
+
+.btn:disabled,
+.btn.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. REUSABLE SECTION HEADING
+   -------------------------------------------------------------------------- */
+.section-heading {
+  margin-block-end: var(--space-6);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-brass);
+  margin-block-end: var(--space-2);
+}
+
+.section-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 2px;
+  background-color: var(--color-brass);
+  border-radius: 1px;
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-snug);
+  margin-block-end: var(--space-3);
+  color: var(--color-ink);
+  transition: color var(--duration-transition) var(--ease-burhan);
+}
+
+.section-lead {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  max-width: 65ch;
+  line-height: var(--line-height-relaxed);
+  transition: color var(--duration-transition) var(--ease-burhan);
+}
+
+/* --------------------------------------------------------------------------
+   6. TEACHER PROFILE CARD COMPONENT
+   -------------------------------------------------------------------------- */
+.teacher-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  background-color: var(--color-paper-alt);
+  border: 1px solid var(--color-hairline-light);
+  border-radius: var(--radius-none);
+  padding: var(--space-6);
+  transition: background-color var(--duration-transition) var(--ease-burhan),
+              border-color var(--duration-transition) var(--ease-burhan);
+}
+
+@media (min-width: 768px) {
+  .teacher-card {
+    grid-template-columns: 240px 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.teacher-card-media {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-hairline-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  text-align: center;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  transition: background-color var(--duration-transition) var(--ease-burhan),
+              border-color var(--duration-transition) var(--ease-burhan);
+}
+
+.teacher-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+}
+
+
+.teacher-card-media-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.teacher-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.teacher-name {
+  font-size: var(--font-size-2xl);
+  margin-block-end: var(--space-1);
+  color: var(--color-ink);
+}
+
+.teacher-subject {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-brass);
+  margin-block-end: var(--space-3);
+}
+
+.teacher-credentials {
+  font-size: var(--font-size-xs);
+  font-family: var(--font-latin-mono);
+  color: var(--color-text-secondary);
+  margin-block-end: var(--space-4);
+  padding-block-end: var(--space-4);
+  border-bottom: 1px solid var(--color-hairline-light);
+}
+
+.teacher-quote {
+  font-style: italic;
+  color: var(--color-ink-soft);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. GLOBAL FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: #0E1015;
+  color: #F1EEE6;
+  padding-block: var(--space-9) var(--space-6);
+  border-top: 1px solid var(--color-hairline-dark);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  margin-block-end: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.footer-brand p {
+  color: var(--color-text-on-dark-secondary);
+  margin-block-start: var(--space-3);
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav a {
+  color: #F1EEE6;
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color var(--duration-micro) var(--ease-burhan);
+}
+
+.footer-nav a:hover {
+  color: var(--color-brass);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-block-start: var(--space-6);
+  border-top: 1px solid var(--color-hairline-dark);
+  color: var(--color-text-on-dark-secondary);
+  font-size: var(--font-size-xs);
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

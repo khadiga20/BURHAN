@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BURHAN | بُرهان — Shared Components Verification</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+  <!-- 10. SKIP-TO-MAIN LINK -->
+  <a href="#main-content" class="skip-link" data-en="Skip to main content" data-ar="الانتقال إلى المحتوى الرئيسي">Skip to main content</a>
+
+  <!-- 1. GLOBAL NAVIGATION & 2. WORDMARK & 3. LANGUAGE TOGGLE -->
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Main Navigation">
+      <a href="index.html" class="burhan-wordmark">
+        BURHAN <span class="burhan-divider">|</span> بُرهان
+      </a>
+
+      <ul class="nav-menu" data-nav-menu>
+        <li><a href="index.html" class="nav-link is-active" data-en="Home" data-ar="الرئيسية">Home</a></li>
+        <li><a href="mathematics.html" class="nav-link" data-en="Mathematics" data-ar="الرياضيات">Mathematics</a></li>
+        <li><a href="science.html" class="nav-link" data-en="Science" data-ar="العلوم">Science</a></li>
+        <li><a href="contact.html" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" class="theme-toggle-btn" data-theme-toggle aria-label="Switch Theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Language Switcher -->
+        <button type="button" class="lang-toggle-btn" data-lang-toggle aria-label="التحويل إلى العربية">
+          <span data-en="العربية" data-ar="English">العربية</span>
+        </button>
+
+        <button type="button" class="nav-toggle-btn" data-nav-toggle aria-expanded="false" aria-label="Open Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="container section-padding">
+
+    <!-- 4. WORLD SWITCHER -->
+    <div style="margin-block-end: var(--space-8); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4);">
+      <div class="world-switcher" aria-label="World Switcher">
+        <a href="mathematics.html" class="world-switcher-item is-active" data-world="math" data-en="Mathematics" data-ar="الرياضيات">Mathematics</a>
+        <span class="burhan-divider">|</span>
+        <a href="science.html" class="world-switcher-item" data-world="science" data-en="Science" data-ar="العلوم">Science</a>
+      </div>
+      <span class="font-mono" style="font-size: var(--font-size-xs); color: var(--color-text-secondary);" data-en="Phase 1 Shared Component Verification" data-ar="التحقق من المكونات المشتركة للمرحلة الأولى">
+        Phase 1 Shared Component Verification
+      </span>
+    </div>
+
+    <!-- 6. REUSABLE SECTION HEADING & 9. DIVIDER MOTIF -->
+    <section class="section-heading">
+      <span class="section-eyebrow" data-en="Brand Philosophy" data-ar="فلسفة العلامة">Brand Philosophy</span>
+      <h1 class="section-title font-display"
+          data-en="Understanding the WHY behind Science &amp; Mathematics."
+          data-ar="فهم السبب الجوهري وراء العلوم والرياضيات.">
+        Understanding the WHY behind Science &amp; Mathematics.
+      </h1>
+      <p class="section-lead"
+         data-en="BURHAN is an educational brand focused on deep reasoning and proof instead of rote memorization."
+         data-ar="بُرهان هي علامة تجارية تعليمية تركز على التفكير العميق والبرهان بدلاً من الحفظ التلقائي.">
+        BURHAN is an educational brand focused on deep reasoning and proof instead of rote memorization.
+      </p>
+    </section>
+
+    <!-- 9. SECTION DIVIDER -->
+    <div class="section-divider">
+      <span class="burhan-divider">|</span>
+    </div>
+
+    <!-- 5. BUTTON SYSTEM -->
+    <section style="margin-block-end: var(--space-10);">
+      <h2 class="font-display" style="font-size: var(--font-size-xl); margin-block-end: var(--space-4);"
+          data-en="Button System Variants" data-ar="أنواع الأزرار المعتمدة">
+        Button System Variants
+      </h2>
+      <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center;">
+        <button type="button" class="btn btn-primary">
+          <span data-en="Primary Action" data-ar="إجراء رئيسي">Primary Action</span>
+          <svg class="icon-directional" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-inline-start: var(--space-2);">
+            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button type="button" class="btn btn-secondary" data-en="Secondary Action" data-ar="إجراء فرعي">
+          Secondary Action
+        </button>
+
+        <button type="button" class="btn btn-math" data-en="Mathematics World" data-ar="عالم الرياضيات">
+          Mathematics World
+        </button>
+
+        <button type="button" class="btn btn-science" data-en="Science World" data-ar="عالم العلوم">
+          Science World
+        </button>
+
+        <button type="button" class="btn btn-primary" disabled data-en="Disabled State" data-ar="حالة المعطل">
+          Disabled State
+        </button>
+      </div>
+    </section>
+
+    <!-- 7. TEACHER PROFILE CARD COMPONENT -->
+    <section style="margin-block-end: var(--space-10);">
+      <h2 class="font-display" style="font-size: var(--font-size-xl); margin-block-end: var(--space-4);"
+          data-en="Teacher Profile Component (Shared Matrix)" data-ar="مكون الملف الشخصي للمعلم (نموذج مشترك)">
+        Teacher Profile Component (Shared Matrix)
+      </h2>
+      <article class="teacher-card">
+        <div class="teacher-card-media" aria-label="Editorial teacher photo placeholder">
+          <div class="teacher-card-media-placeholder">
+            <span class="burhan-divider" style="font-size: var(--font-size-2xl);">|</span>
+            <span data-en="Teacher Photo Placeholder" data-ar="مساحة مخصصة لصورة المعلم">Teacher Photo Placeholder</span>
+            <span class="font-mono" style="font-size: var(--font-size-xs);" data-en="4:5 Editorial Frame" data-ar="إطار تحريري 4:5">4:5 Editorial Frame</span>
+          </div>
+        </div>
+        <div class="teacher-card-body">
+          <h3 class="teacher-name font-display" data-en="Teacher Name Placeholder" data-ar="اسم المعلم المخصص">
+            Teacher Name Placeholder
+          </h3>
+          <span class="teacher-subject" data-en="Mathematics &amp; Physics Specialist" data-ar="أخصائي الرياضيات والفيزياء">
+            Mathematics &amp; Physics Specialist
+          </span>
+          <div class="teacher-credentials" data-en="Credentials Placeholder — Degrees &amp; Specialization" data-ar="مؤهلات مخصصة — الدرجات والتخصص">
+            Credentials Placeholder — Degrees &amp; Specialization
+          </div>
+          <blockquote class="teacher-quote" data-en="“True understanding begins when a student stops memorizing rules and starts asking why those rules must be true.”" data-ar="«يبدأ الفهم الحقيقي عندما يتوقف الطالب عن حفظ القواعد ويبدأ في التساؤل عن سبب صحة هذه القواعد.»">
+            “True understanding begins when a student stops memorizing rules and starts asking why those rules must be true.”
+          </blockquote>
+        </div>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- 8. GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="burhan-wordmark">
+            BURHAN <span class="burhan-divider">|</span> بُرهان
+          </a>
+          <p data-en="An educational brand focused on helping students understand the WHY behind Mathematics and Science."
+             data-ar="علامة تجارية تعليمية تركز على مساعدة الطلاب على فهم السبب الجوهري وراء الرياضيات والعلوم.">
+            An educational brand focused on helping students understand the WHY behind Mathematics and Science.
+          </p>
+        </div>
+        <div>
+          <ul class="footer-nav">
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="mathematics.html" data-en="Mathematics World" data-ar="عالم الرياضيات">Mathematics World</a></li>
+            <li><a href="science.html" data-en="Science World" data-ar="عالم العلوم">Science World</a></li>
+            <li><a href="contact.html" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-en="Contact Placeholder — Details to be announced" data-ar="مساحة مخصصة لمعلومات التواصل — سيتم الإعلان عنها">
+          Contact Placeholder — Details to be announced
+        </span>
+        <span data-en="© 2026 BURHAN | بُرهان. All rights reserved." data-ar="© 2026 بُرهان | BURHAN. جميع الحقوق محفوظة.">
+          © 2026 BURHAN | بُرهان. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

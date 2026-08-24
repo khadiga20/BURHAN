@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BURHAN | بُرهان — Understand the WHY behind Science &amp; Mathematics</title>
+  <meta name="description"
+    content="BURHAN is an educational brand focused on helping students understand the WHY behind Mathematics and Science instead of simply memorizing answers.">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/theme.js"></script>
+</head>
+
+<body>
+
+  <!-- ACCESSIBLE SKIP-TO-MAIN LINK -->
+  <a href="#main-content" class="skip-link" data-en="Skip to main content" data-ar="الانتقال إلى المحتوى الرئيسي">Skip
+    to main content</a>
+
+  <!-- 1. CINEMATIC INTRO — "THE FIRST WHY" -->
+  <div class="cinematic-intro" data-cinematic-intro aria-live="polite">
+
+
+    <!-- Floating math symbols for intro depth -->
+    <div class="intro-ambient" aria-hidden="true">
+      <span class="intro-ambient-symbol" style="top:15%;left:8%;font-size:1.4rem;opacity:0.07;">∫</span>
+      <span class="intro-ambient-symbol" style="top:72%;left:12%;font-size:1.1rem;opacity:0.06;">π</span>
+      <span class="intro-ambient-symbol" style="top:22%;right:10%;font-size:1.6rem;opacity:0.07;">∑</span>
+      <span class="intro-ambient-symbol" style="top:78%;right:8%;font-size:1.2rem;opacity:0.05;">∞</span>
+      <span class="intro-ambient-symbol" style="top:48%;left:5%;font-size:0.9rem;opacity:0.06;">△</span>
+      <span class="intro-ambient-symbol" style="top:35%;right:6%;font-size:1rem;opacity:0.06;">≡</span>
+    </div>
+
+    <div class="intro-stage" data-intro-question>
+      <h2 class="intro-question font-display" data-en="You know the answer. But can you prove it?"
+        data-ar="تعرف الإجابة... لكن هل تستطيع إثباتها؟">
+        You know the answer. But can you prove it?
+      </h2>
+    </div>
+
+    <div class="intro-stage" data-intro-identity>
+      <div class="intro-identity-lockup">
+        <div class="intro-wordmark font-display">
+          BURHAN <span class="burhan-divider intro-burhan-divider">|</span> بُرهان
+        </div>
+        <div class="intro-tagline-wrap" data-intro-tagline>
+          <p class="intro-tagline font-mono" data-en="Understanding the WHY behind Mathematics &amp; Science."
+            data-ar="فهم السبب الجوهري وراء الرياضيات والعلوم.">
+            Understanding the WHY behind Mathematics &amp; Science.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="cinematic-skip-btn" data-skip-intro data-en="Skip Intro [ESC]"
+      data-ar="تخطي العرض [ESC]">
+      Skip Intro [ESC]
+    </button>
+  </div>
+
+  <!-- GLOBAL NAVIGATION HEADER -->
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Main Navigation">
+      <a href="index.html" class="burhan-wordmark" aria-label="BURHAN Home">
+        BURHAN <span class="burhan-divider">|</span> بُرهان
+      </a>
+
+      <ul class="nav-menu" data-nav-menu>
+        <li><a href="index.html" class="nav-link is-active" aria-current="page" data-en="Home"
+            data-ar="الرئيسية">Home</a></li>
+        <li><a href="mathematics.html" class="nav-link" data-en="Mathematics" data-ar="الرياضيات">Mathematics</a></li>
+        <li><a href="science.html" class="nav-link" data-en="Science" data-ar="العلوم">Science</a></li>
+        <li><a href="contact.html" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle (Light / Dark) -->
+        <button type="button" class="theme-toggle-btn" data-theme-toggle aria-label="Switch Theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5" />
+            <path
+              d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+        </button>
+
+        <!-- Language Switcher -->
+        <button type="button" class="lang-toggle-btn" data-lang-toggle aria-label="التحويل إلى العربية">
+          <span data-en="العربية" data-ar="English">العربية</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="nav-toggle-btn" data-nav-toggle aria-expanded="false"
+          aria-label="Open Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN HOME CONTENT -->
+  <main id="main-content">
+
+    <!-- 2. HERO / BRAND STATEMENT -->
+    <section class="home-hero" data-hero-section>
+
+      <!-- Animated Canvas — Mathematical + Scientific Environment -->
+      <canvas class="hero-canvas" aria-hidden="true" id="heroCanvas"></canvas>
+
+      <!-- Radial atmospheric glow layers -->
+      <div class="hero-glow hero-glow--math" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow--science" aria-hidden="true"></div>
+
+      <!-- Accent construction line — draws itself on reveal -->
+      <span class="hero-accent-line" aria-hidden="true"></span>
+
+      <!-- Floating ambient math symbols — decorative layer -->
+      <div class="hero-ambient-layer" aria-hidden="true">
+        <span class="ambient-symbol a-sym-1">∑</span>
+        <span class="ambient-symbol a-sym-2">∫</span>
+        <span class="ambient-symbol a-sym-3">π</span>
+        <span class="ambient-symbol a-sym-4">∞</span>
+        <span class="ambient-symbol a-sym-5">∴</span>
+        <span class="ambient-symbol a-sym-6">≡</span>
+        <span class="ambient-symbol a-sym-7">∿</span>
+        <span class="ambient-symbol a-sym-8">△</span>
+      </div>
+
+      <div class="container home-hero-container">
+        <div class="home-hero-grid">
+
+          <!-- Hero Text Column -->
+          <div class="home-hero-content">
+            <!-- Hero Proof Badges -->
+            <div class="hero-badges" data-reveal-hero>
+              <span class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span data-en="PROOF DRIVEN" data-ar="مبني على البرهان">PROOF DRIVEN</span>
+              </span>
+              <span class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span data-en="RIGOROUS METHODOLOGY" data-ar="منهجية دقيقة">RIGOROUS METHODOLOGY</span>
+              </span>
+            </div>
+
+            <span class="section-eyebrow hero-eyebrow" data-reveal-hero data-en="BURHAN | بُرهان"
+              data-ar="بُرهان | BURHAN">BURHAN | بُرهان</span>
+
+            <h1 class="home-hero-title font-display" data-reveal-hero
+              data-en="Don't just memorize the answer. Understand why." data-ar="لا تحفظ الإجابة فقط. افهم السبب.">
+              Don't just memorize the answer. Understand why.
+            </h1>
+
+            <p class="home-hero-lead" data-reveal-hero
+              data-en="Mathematics and Science are not sets of formulas to recite. They are structured systems of reasoning waiting to be proven and understood."
+              data-ar="الرياضيات والعلوم ليست مجرد صيغ تُحفظ، بل هي أنظمة تفكير برهانية تنتظر الفهم والإثبات.">
+              Mathematics and Science are not sets of formulas to recite. They are structured systems of reasoning
+              waiting to be proven and understood.
+            </p>
+
+            <!-- Hero proof bar: QUESTION | REASONING | UNDERSTANDING -->
+            <div class="hero-proof-bar" data-reveal-hero aria-hidden="true">
+              <span class="hero-proof-step font-mono" data-en="QUESTION" data-ar="السؤال">QUESTION</span>
+              <span class="hero-proof-sep burhan-divider">|</span>
+              <span class="hero-proof-step font-mono" data-en="REASONING" data-ar="الاستدلال">REASONING</span>
+              <span class="hero-proof-sep burhan-divider">|</span>
+              <span class="hero-proof-step font-mono" data-en="UNDERSTANDING" data-ar="الفهم">UNDERSTANDING</span>
+            </div>
+
+            <div class="hero-cta-row" data-reveal-hero>
+              <a href="#choose-your-world" class="btn btn-primary">
+                <span data-en="Choose Your World" data-ar="اختر عالمك">Choose Your World</span>
+                <svg class="icon-directional" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                  xmlns="http://www.w3.org/2000/svg" style="margin-inline-start: var(--space-2);">
+                  <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a href="contact.html" class="btn btn-ghost" data-en="Contact Us" data-ar="تواصل معنا">
+                Contact Us
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Combined Teachers Visual Column -->
+          <div class="home-hero-visual hero-teachers-visual" data-reveal-hero>
+            <div class="hero-teachers-wrapper">
+              <!-- Minimal dual Math (Indigo) / Science (Amber) accent atmospheric glow -->
+              <span class="teachers-accent-glow teachers-accent-glow--math" aria-hidden="true"></span>
+              <span class="teachers-accent-glow teachers-accent-glow--science" aria-hidden="true"></span>
+
+              <!-- Direct Cutout Image Display (No Card / Container Box) -->
+              <div class="hero-teachers-display">
+                <img src="images/teachers/teachers.png"
+                  alt="BURHAN Educators — Ammar Yehia (Mathematics) & Yasmin Ahmed (Science)" class="hero-teachers-img"
+                  loading="eager">
+              </div>
+
+              <!-- Editorial Educator Name Lockup -->
+              <div class="hero-teachers-caption font-mono">
+                <span class="caption-item caption-item--math" data-en="Ammar Yehia — Math"
+                  data-ar="عمار يحيى — رياضيات">Ammar Yehia — Math</span>
+                <span class="burhan-divider" aria-hidden="true">|</span>
+                <span class="caption-item caption-item--science" data-en="Yasmin Ahmed — Science"
+                  data-ar="ياسمين أحمد — علوم">Yasmin Ahmed — Science</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Hero scroll indicator -->
+      <div class="hero-scroll-indicator" aria-hidden="true">
+        <span class="scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- 3. CHOOSE YOUR WORLD -->
+    <section id="choose-your-world" class="worlds-section">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <span class="section-eyebrow" data-en="Subject Selection" data-ar="تحديد المسار">Subject Selection</span>
+          <h2 class="section-title font-display" data-en="Two disciplines. One foundation of proof."
+            data-ar="تخصصان. أساس واحد من البرهان.">
+            Two disciplines. One foundation of proof.
+          </h2>
+        </div>
+
+        <div class="world-selection-grid">
+
+          <!-- Mathematics World Panel -->
+          <article class="world-panel" data-world="math" data-reveal data-reveal-delay="0">
+            <!-- Full atmospheric background for this world -->
+            <div class="world-panel-bg" aria-hidden="true">
+              <canvas class="world-canvas" data-world-canvas="math" aria-hidden="true"></canvas>
+              <div class="world-panel-glow" aria-hidden="true"></div>
+            </div>
+
+            <!-- Structural motif lines — appear on hover -->
+            <span class="panel-motif panel-motif--math" aria-hidden="true">
+              <span class="panel-motif-line pm-l1"></span>
+              <span class="panel-motif-line pm-l2"></span>
+              <span class="panel-motif-symbol">∴</span>
+            </span>
+
+            <div class="world-panel-inner">
+              <div class="world-panel-header">
+                <div class="world-panel-badge">
+                  <span class="panel-badge-symbol">∴</span>
+                  <span data-en="PROOF SYSTEM — INDIGO" data-ar="نظام البرهان — نيلي">PROOF SYSTEM — INDIGO</span>
+                </div>
+                <!-- Accent line that draws on hover -->
+                <span class="panel-accent-line" aria-hidden="true"></span>
+                <h3 class="world-panel-title font-display" data-en="Mathematics World" data-ar="عالم الرياضيات">
+                  Mathematics World</h3>
+                <p class="world-panel-description"
+                  data-en="Explore mathematics beyond formulaic memory. Understand how theorems are constructed and why proofs hold true."
+                  data-ar="استكشف الرياضيات أبعد من حفظ القواعد. افهم كيف تُبنى النظريات ولماذا صحة البراهين مؤكدة.">
+                  Explore mathematics beyond formulaic memory. Understand how theorems are constructed and why proofs
+                  hold true.
+                </p>
+              </div>
+              <div class="panel-footer">
+                <a href="mathematics.html" class="btn btn-math btn-panel">
+                  <span data-en="Enter Mathematics World" data-ar="دخول عالم الرياضيات">Enter Mathematics World</span>
+                  <svg class="icon-directional" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" style="margin-inline-start: var(--space-2);">
+                    <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Science World Panel -->
+          <article class="world-panel" data-world="science" data-reveal data-reveal-delay="160">
+            <!-- Full atmospheric background for this world -->
+            <div class="world-panel-bg" aria-hidden="true">
+              <canvas class="world-canvas" data-world-canvas="science" aria-hidden="true"></canvas>
+              <div class="world-panel-glow" aria-hidden="true"></div>
+            </div>
+
+            <!-- Observational motif lines — appear on hover -->
+            <span class="panel-motif panel-motif--science" aria-hidden="true">
+              <span class="panel-motif-wave"></span>
+              <span class="panel-motif-symbol">∿</span>
+            </span>
+
+            <div class="world-panel-inner">
+              <div class="world-panel-header">
+                <div class="world-panel-badge">
+                  <span class="panel-badge-symbol">∿</span>
+                  <span data-en="OBSERVATION SYSTEM — AMBER" data-ar="نظام الملاحظة — كهرب">OBSERVATION SYSTEM —
+                    AMBER</span>
+                </div>
+                <!-- Accent line that draws on hover -->
+                <span class="panel-accent-line" aria-hidden="true"></span>
+                <h3 class="world-panel-title font-display" data-en="Science World" data-ar="عالم العلوم">Science World
+                </h3>
+                <p class="world-panel-description"
+                  data-en="Investigate natural laws and physical phenomena through observation, hypothesis, and foundational principles."
+                  data-ar="استكشف القوانين الطبيعية والظواهر الفيزيائية من خلال الملاحظة والفرضيات والمبادئ الأساسية.">
+                  Investigate natural laws and physical phenomena through observation, hypothesis, and foundational
+                  principles.
+                </p>
+              </div>
+              <div class="panel-footer">
+                <a href="science.html" class="btn btn-science btn-panel">
+                  <span data-en="Enter Science World" data-ar="دخول عالم العلوم">Enter Science World</span>
+                  <svg class="icon-directional" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" style="margin-inline-start: var(--space-2);">
+                    <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PHILOSOPHY SECTION (PAUSE SECTION) -->
+    <section class="philosophy-section" data-philosophy-section>
+      <div class="container">
+        <blockquote class="philosophy-quote font-display" data-philosophy-quote
+          data-en="&ldquo;True learning begins the moment you stop memorizing steps and start asking why.&rdquo;"
+          data-ar="«يبدأ التعلم الحقيقي في اللحظة التي تتوقف فيها عن حفظ الخطوات وتبدأ في التساؤل عن السبب.»">
+          &ldquo;True learning begins the moment you stop memorizing steps and start asking why.&rdquo;
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 5. FACULTY SECTION -->
+    <section class="faculty-section" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Faculty &amp; Mentorship" data-ar="الهيئة التعليمية والإرشاد">Faculty
+            &amp; Mentorship</span>
+          <h2 class="section-title font-display" data-en="Guided by educators who value depth over speed."
+            data-ar="تحت إشراف معلمين يقدرون العمق على السرعة.">
+            Guided by educators who value depth over speed.
+          </h2>
+          <p class="section-lead"
+            data-en="Our faculty is dedicated to clarity and rigorous reasoning. Full teacher profiles and credentials are featured within each respective world."
+            data-ar="تلتزم هيئتنا التعليمية بالوضوح والتفكير الدقيق. تُعرض الملفات الشخصية الكاملة والمؤهلات داخل كل عالم مخصص.">
+            Our faculty is dedicated to clarity and rigorous reasoning. Full teacher profiles and credentials are
+            featured within each respective world.
+          </p>
+        </div>
+
+        <div class="teacher-grid">
+          <!-- Mathematics Teacher Brief -->
+          <article class="teacher-card" data-teacher-world="math" data-reveal data-reveal-delay="0">
+            <div class="teacher-card-media">
+              <img
+                src="images/teachers/ammar-yehia-cutout.png"
+                alt="Ammar Yehia Mohamed — Mathematics Teacher"
+                class="teacher-card-image"
+                loading="lazy">
+            </div>
+            <div class="teacher-card-body">
+              <h3 class="teacher-name font-display" data-en="Ammar Yehia Mohamed" data-ar="عمار يحيي محمد">
+                Ammar Yehia Mohamed
+              </h3>
+              <span class="teacher-subject" data-en="Mathematics World" data-ar="عالم الرياضيات">
+                Mathematics World
+              </span>
+              <div class="teacher-credentials" data-en="Credentials Placeholder — Full profile inside Mathematics World"
+                data-ar="مؤهلات مخصصة — الملف الشخصي الكامل داخل عالم الرياضيات">
+                Credentials Placeholder — Full profile inside Mathematics World
+              </div>
+              <blockquote class="teacher-quote"
+                data-en="&ldquo;A mathematical proof is not a set of instructions to follow; it is an argument that convinces the mind completely.&rdquo;"
+                data-ar="«البرهان الرياضي ليس مجموعة تعليمات تُتّبع، بل هو حجة تُقنع العقل بشكل كامل.»">
+                &ldquo;A mathematical proof is not a set of instructions to follow; it is an argument that convinces the
+                mind completely.&rdquo;
+              </blockquote>
+            </div>
+          </article>
+
+          <!-- Science Teacher Brief -->
+          <article class="teacher-card" data-teacher-world="science" data-reveal data-reveal-delay="160">
+            <div class="teacher-card-media">
+              <img
+                src="images/teachers/yasmin.png"
+                alt="Yasmine Ahmed — Science Teacher"
+                class="teacher-card-image"
+                loading="lazy">
+            </div>
+            <div class="teacher-card-body">
+              <h3 class="teacher-name font-display" data-en="Yasmine Ahmed" data-ar="ياسمين أحمد">
+                Yasmine Ahmed
+              </h3>
+              <span class="teacher-subject" data-en="Science World" data-ar="عالم العلوم">
+                Science World
+              </span>
+              <div class="teacher-credentials" data-en="Credentials Placeholder — Full profile inside Science World"
+                data-ar="مؤهلات مخصصة — الملف الشخصي الكامل داخل عالم العلوم">
+                Credentials Placeholder — Full profile inside Science World
+              </div>
+              <blockquote class="teacher-quote"
+                data-en="&ldquo;Science is the art of questioning observations until nature reveals its underlying mechanism.&rdquo;"
+                data-ar="«العلم هو فن التساؤل عن الملاحظات حتى تكشف الطبيعة عن آليتها الجوهرية.»">
+                &ldquo;Science is the art of questioning observations until nature reveals its underlying
+                mechanism.&rdquo;
+              </blockquote>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CLOSING CTA -->
+    <section class="closing-cta-section" data-reveal>
+      <div class="container">
+        <div class="section-divider" aria-hidden="true">
+          <span class="burhan-divider closing-divider">|</span>
+        </div>
+        <h2 class="closing-cta-title font-display" data-en="Start the journey of understanding."
+          data-ar="ابدأ رحلة الفهم.">
+          Start the journey of understanding.
+        </h2>
+        <p class="section-lead closing-cta-lead"
+          data-en="Select your area of study or reach out to start a conversation about our educational methodology."
+          data-ar="اختر مجال دراستك أو تواصل معنا لبدء حوار حول منهجيتنا التعليمية.">
+          Select your area of study or reach out to start a conversation about our educational methodology.
+        </p>
+
+        <div class="closing-cta-actions">
+          <a href="mathematics.html" class="btn btn-math" data-en="Mathematics World"
+            data-ar="عالم الرياضيات">Mathematics World</a>
+          <a href="science.html" class="btn btn-science" data-en="Science World" data-ar="عالم العلوم">Science World</a>
+          <a href="contact.html" class="btn btn-ghost" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="burhan-wordmark">
+            BURHAN <span class="burhan-divider">|</span> بُرهان
+          </a>
+          <p data-en="An educational brand focused on helping students understand the WHY behind Mathematics and Science."
+            data-ar="علامة تجارية تعليمية تركز على مساعدة الطلاب على فهم السبب الجوهري وراء الرياضيات والعلوم.">
+            An educational brand focused on helping students understand the WHY behind Mathematics and Science.
+          </p>
+        </div>
+        <div>
+          <ul class="footer-nav">
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="mathematics.html" class="nav-link" data-en="Mathematics World"
+                data-ar="عالم الرياضيات">Mathematics World</a></li>
+            <li><a href="science.html" class="nav-link" data-en="Science World" data-ar="عالم العلوم">Science World</a>
+            </li>
+            <li><a href="contact.html" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-en="Contact Placeholder — Details to be announced"
+          data-ar="مساحة مخصصة لمعلومات التواصل — سيتم الإعلان عنها">
+          Contact Placeholder — Details to be announced
+        </span>
+        <span data-en="© 2026 BURHAN | بُرهان. All rights reserved."
+          data-ar="© 2026 بُرهان | BURHAN. جميع الحقوق محفوظة.">
+          © 2026 BURHAN | بُرهان. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

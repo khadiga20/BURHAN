@@ -1,0 +1,60 @@
+/* ==========================================================================
+   BURHAN | بُرهان — Bilingual & Bidirectional CSS Infrastructure
+   Directional mirroring, icon transforms, isolate bidi text, font mono fallback.
+   ========================================================================== */
+
+/* Directional Icons (Flip horizontally when in RTL mode) */
+[dir="rtl"] .icon-directional {
+  transform: scaleX(-1);
+}
+
+/* Bi-directional Text & Numerals Isolation */
+bdi,
+.bidi-isolate {
+  unicode-bidi: isolate;
+}
+
+/* Numerals & Data Mono Font Isolation */
+.numeral,
+.font-mono {
+  direction: ltr;
+  display: inline-block;
+  unicode-bidi: embed;
+}
+
+/* Smooth language switching transition adjustments */
+html {
+  transition: opacity var(--duration-micro) var(--ease-burhan);
+}
+
+/* Language Toggle Button Component Base (2px radius control) */
+.lang-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--color-hairline-light);
+  color: var(--color-ink);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-latin-body);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  border-radius: var(--radius-control);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: background-color var(--duration-micro) var(--ease-burhan),
+              border-color var(--duration-micro) var(--ease-burhan);
+}
+
+[dir="rtl"] .lang-toggle-btn {
+  font-family: var(--font-arabic-body);
+}
+
+.lang-toggle-btn:hover {
+  background-color: var(--color-paper-alt);
+  border-color: var(--color-brass);
+}
+
+.lang-toggle-btn:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}

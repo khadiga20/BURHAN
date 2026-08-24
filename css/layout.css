@@ -1,0 +1,67 @@
+/* ==========================================================================
+   BURHAN | بُرهان — Layout & Container Architecture
+   RTL/LTR-ready logical properties, 12-column grid, responsive breakpoints.
+   ========================================================================== */
+
+/* Main Container */
+.container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: var(--gutter-desktop);
+  }
+}
+
+/* 12-Column Desktop Grid System */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter-mobile);
+}
+
+@media (min-width: 768px) {
+  .grid-12 {
+    gap: var(--gutter-desktop);
+  }
+}
+
+/* Spacing & Logical Property Utility Helpers */
+.section-padding {
+  padding-block: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-block: var(--space-10);
+  }
+}
+
+/* Signature Brand Device: BURHAN "|" Divider */
+.burhan-divider {
+  display: inline-block;
+  color: var(--color-brass);
+  font-weight: var(--font-weight-regular);
+  margin-inline: var(--space-2);
+  user-select: none;
+}
+
+/* Vertical Hairline Separator */
+.hairline-separator-v {
+  width: 1px;
+  background-color: var(--color-hairline-light);
+  align-self: stretch;
+}
+
+/* Horizontal Hairline Separator */
+.hairline-separator-h {
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-hairline-light);
+  border: none;
+  margin-block: var(--space-5);
+}

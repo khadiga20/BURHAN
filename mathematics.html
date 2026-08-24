@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematics World | BURHAN — عالم الرياضيات | بُرهان</title>
+  <meta name="description" content="Explore Mathematics World at BURHAN. Guided by Mr. Ammar Yehia Mohamed (عمار يحيى محمد). Understand the WHY behind mathematical proofs, algebra, geometry, calculus, and mathematical reasoning.">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/theme.js"></script>
+</head>
+<body data-page="mathematics">
+
+  <!-- ACCESSIBLE SKIP-TO-MAIN LINK -->
+  <a href="#main-content" class="skip-link" data-en="Skip to main content" data-ar="الانتقال إلى المحتوى الرئيسي">Skip to main content</a>
+
+  <!-- CONTINUOUS MATHEMATICAL BACKGROUND CANVAS -->
+  <canvas class="hero-canvas" aria-hidden="true" id="heroCanvas"></canvas>
+
+  <!-- GLOBAL NAVIGATION HEADER -->
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Main Navigation">
+      <a href="index.html" class="burhan-wordmark" aria-label="BURHAN Home">
+        BURHAN <span class="burhan-divider">|</span> بُرهان
+      </a>
+
+      <ul class="nav-menu" data-nav-menu>
+        <li><a href="index.html" class="nav-link" data-en="Home" data-ar="الرئيسية">Home</a></li>
+        <li><a href="mathematics.html" class="nav-link is-active" aria-current="page" data-en="Mathematics" data-ar="الرياضيات">Mathematics</a></li>
+        <li><a href="science.html" class="nav-link" data-en="Science" data-ar="العلوم">Science</a></li>
+        <li><a href="contact.html" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle (Light / Dark) -->
+        <button type="button" class="theme-toggle-btn" data-theme-toggle aria-label="Switch Theme">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" style="display:none;">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <!-- Language Switcher -->
+        <button type="button" class="lang-toggle-btn" data-lang-toggle aria-label="التحويل إلى العربية">
+          <span data-en="العربية" data-ar="English">العربية</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button type="button" class="nav-toggle-btn" data-nav-toggle aria-expanded="false" aria-label="Open Navigation Menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN MATHEMATICS WORLD CONTENT -->
+  <main id="main-content">
+
+    <!-- 01 — MATHEMATICS HERO SECTION -->
+    <section class="home-hero math-hero" data-hero-section>
+      <!-- Radial Math Indigo glow atmosphere -->
+      <div class="hero-glow hero-glow--math" aria-hidden="true"></div>
+
+      <!-- Accent construction line -->
+      <span class="hero-accent-line hero-accent-line--math" aria-hidden="true"></span>
+
+      <div class="container home-hero-container">
+        <!-- Proof Badges -->
+        <div class="hero-badges" data-reveal-hero>
+          <span class="hero-badge hero-badge--math">
+            <span class="hero-badge-dot hero-badge-dot--math"></span>
+            <span data-en="PROOF SYSTEM — INDIGO" data-ar="نظام البرهان — نيلي">PROOF SYSTEM — INDIGO</span>
+          </span>
+          <span class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span data-en="RIGOROUS REASONING" data-ar="استدلال منهجي">RIGOROUS REASONING</span>
+          </span>
+        </div>
+
+        <span class="section-eyebrow hero-eyebrow" data-reveal-hero
+              data-en="BURHAN | MATHEMATICS WORLD" data-ar="بُرهان | عالم الرياضيات">BURHAN | MATHEMATICS WORLD</span>
+
+        <h1 class="home-hero-title font-display" data-reveal-hero
+            data-en="Mathematics is not a collection of rules. It is the language of proof."
+            data-ar="الرياضيات ليست مجرد قواعد، بل هي لغة البرهان.">
+          Mathematics is not a collection of rules. It is the language of proof.
+        </h1>
+
+        <p class="home-hero-lead" data-reveal-hero
+           data-en="Explore mathematical reasoning beyond formulaic memory. Guided by Mr. Ammar Yehia Mohamed (عمار يحيى محمد), understand how theorems are constructed and why proofs hold true."
+           data-ar="استكشف التفكير الرياضي أبعد من حفظ القواعد. تحت إشراف الأستاذ عمار يحيى محمد، افهم كيف تُبنى النظريات ولماذا تصح البراهين.">
+          Explore mathematical reasoning beyond formulaic memory. Guided by Mr. Ammar Yehia Mohamed (عمار يحيى محمد), understand how theorems are constructed and why proofs hold true.
+        </p>
+
+        <!-- Proof Step Indicator Bar -->
+        <div class="hero-proof-bar" data-reveal-hero aria-hidden="true">
+          <span class="hero-proof-step font-mono" data-en="01 — QUESTION" data-ar="٠١ — السؤال">01 — QUESTION</span>
+          <span class="hero-proof-sep burhan-divider">|</span>
+          <span class="hero-proof-step font-mono" data-en="02 — REASONING" data-ar="٠٢ — الاستدلال">02 — REASONING</span>
+          <span class="hero-proof-sep burhan-divider">|</span>
+          <span class="hero-proof-step font-mono" data-en="03 — UNDERSTANDING" data-ar="٠٣ — الفهم">03 — UNDERSTANDING</span>
+        </div>
+
+        <div class="hero-cta-row" data-reveal-hero>
+          <a href="#teacher-intro" class="btn btn-math">
+            <span data-en="Meet the Educator" data-ar="تعرّف على المعلم">Meet the Educator</span>
+            <svg class="icon-directional" width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-inline-start: var(--space-2);">
+              <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#curriculum" class="btn btn-ghost" data-en="Curriculum Modules" data-ar="وحدات المنهج">
+            Curriculum Modules
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 — QUESTION → REASONING → UNDERSTANDING -->
+    <section class="proof-stages-section section-padding">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <span class="section-eyebrow" data-en="The BURHAN Methodology" data-ar="منهجية بُرهان">The BURHAN Methodology</span>
+          <h2 class="section-title font-display"
+              data-en="A proof assembled step by step."
+              data-ar="برهانٌ يُبنى خطوة بخطوة.">
+            A proof assembled step by step.
+          </h2>
+          <p class="section-lead"
+             data-en="We reject formula recitation. Every topic is presented through three structured stages of deduction."
+             data-ar="نرفض تكرار القواعد الصماء. يُقدَّم كل موضوع من خلال ثلاث مراحل هيكلية من الاستنتاج المنطقي.">
+            We reject formula recitation. Every topic is presented through three structured stages of deduction.
+          </p>
+        </div>
+
+        <!-- 3 Structured Stages -->
+        <div class="proof-stages-grid">
+
+          <!-- STAGE 01 — QUESTION -->
+          <article class="proof-stage-card" data-reveal data-reveal-delay="0">
+            <div class="stage-card-header">
+              <span class="stage-number font-mono" data-en="01 | QUESTION" data-ar="٠١ | السؤال">01 | QUESTION</span>
+              <span class="stage-tag" data-en="The Inquiry" data-ar="بداية التساؤل">The Inquiry</span>
+            </div>
+            <h3 class="stage-title font-display"
+                data-en="The Problem Begins with Asking Why"
+                data-ar="تبدأ المشكلة بطرح سؤال: لماذا؟">
+              The Problem Begins with Asking Why
+            </h3>
+            <p class="stage-desc"
+               data-en="We start not with a formula to memorize, but with a fundamental question about how mathematical structures behave and why a specific pattern exists."
+               data-ar="لا نبدأ بصيغة للحفظ، بل بسؤال جوهري حول كيفية تصرف الهياكل الرياضية ولماذا يوجد نَمَط معين.">
+              We start not with a formula to memorize, but with a fundamental question about how mathematical structures behave and why a specific pattern exists.
+            </p>
+            <div class="stage-formula-box font-mono" aria-hidden="true">
+              <span class="formula-label" data-en="Initial Problem State:" data-ar="حالة المسألة الأوّليّة:">Initial Problem State:</span>
+              <code>x² + 5x + 6 = 0  →  Why does factoring work?</code>
+            </div>
+          </article>
+
+          <!-- STAGE 02 — REASONING -->
+          <article class="proof-stage-card proof-stage-card--math" data-reveal data-reveal-delay="140">
+            <div class="stage-card-header">
+              <span class="stage-number font-mono" data-en="02 | REASONING" data-ar="٠٢ | الاستدلال">02 | REASONING</span>
+              <span class="stage-tag stage-tag--math" data-en="Logical Deduction" data-ar="الاستنتاج المنطقي">Logical Deduction</span>
+            </div>
+            <h3 class="stage-title font-display"
+                data-en="Assembling the Logical Sequence"
+                data-ar="تجميع التسلسل المنطقي">
+              Assembling the Logical Sequence
+            </h3>
+            <p class="stage-desc"
+               data-en="Step by step, we break down geometric relationships, algebraic transformations, and axiomatic deductions until every line logically necessitates the next."
+               data-ar="خطوة بخطوة، نُفكك العلاقات الهندسية، التحويلات الجبرية، والاستنتاجات البديهية حتى تستلزم كل خطوة منطقياً ما يليها.">
+              Step by step, we break down geometric relationships, algebraic transformations, and axiomatic deductions until every line logically necessitates the next.
+            </p>
+            <div class="stage-formula-box font-mono" aria-hidden="true">
+              <span class="formula-label" data-en="Deductive Sequence:" data-ar="التسلسل الاستنتاجي:">Deductive Sequence:</span>
+              <code>(x + 2)(x + 3) = 0  ∴  x = -2  or  x = -3</code>
+            </div>
+          </article>
+
+          <!-- STAGE 03 — UNDERSTANDING -->
+          <article class="proof-stage-card proof-stage-card--brass" data-reveal data-reveal-delay="280">
+            <div class="stage-card-header">
+              <span class="stage-number font-mono" data-en="03 | UNDERSTANDING" data-ar="٠٣ | الفهم">03 | UNDERSTANDING</span>
+              <span class="stage-tag stage-tag--brass" data-en="Self-Evident Truth" data-ar="اليقين والإدراك">Self-Evident Truth</span>
+            </div>
+            <h3 class="stage-title font-display"
+                data-en="The Truth Rendered Self-Evident"
+                data-ar="الحقيقة تتجلى بوضوح كلي">
+              The Truth Rendered Self-Evident
+            </h3>
+            <p class="stage-desc"
+               data-en="The solution is no longer a trick remembered for an exam; it is a permanent mental model of how mathematical reality operates."
+               data-ar="لم يُعد الحل حيلة تُحفظ للامتحان، بل أصبح نموذجاً فكرياً دائماً لكيفية عمل الواقع الرياضي.">
+              The solution is no longer a trick remembered for an exam; it is a permanent mental model of how mathematical reality operates.
+            </p>
+            <div class="stage-formula-box font-mono" aria-hidden="true">
+              <span class="formula-label" data-en="Conclusion:" data-ar="النتيجة:">Conclusion:</span>
+              <code>Q.E.D. — Quod Erat Demonstrandum  |  وهو المطلوب إثباته</code>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 — TEACHER INTRODUCTION — AMMAR YEHIA MOHAMED -->
+    <section id="teacher-intro" class="teacher-intro-section section-padding" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Mathematics Faculty" data-ar="الهيئة التعليمية للرياضيات">Mathematics Faculty</span>
+          <h2 class="section-title font-display"
+              data-en="Meet the Educator"
+              data-ar="تعرّف على المعلم">
+            Meet the Educator
+          </h2>
+          <p class="section-lead"
+             data-en="A dedicated educator focusing on building true understanding before memorizing rules."
+             data-ar="معلم مكرس لبناء الفهم الحقيقي قبل حفظ القواعد.">
+            A dedicated educator focusing on building true understanding before memorizing rules.
+          </p>
+        </div>
+
+        <div class="teacher-intro-grid">
+          <!-- Portrait Frame (Slide-in Reveal Animation) -->
+          <div class="teacher-portrait-frame" data-reveal-slide>
+            <img src="images/teachers/ammar-yehia-cutout.png"
+                 alt="Ammar Yehia Mohamed — Mathematics Educator | عمار يحيى محمد — معلم الرياضيات"
+                 class="teacher-portrait-img"
+                 loading="eager">
+          </div>
+
+          <!-- Name & Short Intro Body -->
+          <div class="teacher-intro-body" data-reveal data-reveal-delay="160">
+            <h3 class="teacher-intro-title font-display" data-en="Ammar Yehia Mohamed" data-ar="عمار يحيى محمد">
+              Ammar Yehia Mohamed
+            </h3>
+
+            <div class="teacher-signature-divider" aria-hidden="true">
+              <span class="burhan-divider">|</span>
+            </div>
+
+            <span class="teacher-intro-role" data-en="Mathematics Educator" data-ar="معلم الرياضيات">
+              Mathematics Educator
+            </span>
+
+            <blockquote class="teacher-intro-quote font-display"
+                        data-en="“A Mathematics educator dedicated to building authentic understanding before memorizing rules, simplifying complex mathematical concepts into logical steps students can grasp and apply.”"
+                        data-ar="«معلم رياضيات يهتم ببناء الفهم الحقيقي قبل حفظ القواعد، ويعمل على تبسيط المفاهيم الرياضية وتحويلها إلى خطوات منطقية يمكن للطالب فهمها وتطبيقها.»">
+              “A Mathematics educator dedicated to building authentic understanding before memorizing rules, simplifying complex mathematical concepts into logical steps students can grasp and apply.”
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- EXPERIENCE HIGHLIGHTS STRIP -->
+        <div class="experience-highlights-strip" data-reveal data-reveal-delay="240">
+          <div class="highlight-item">
+            <span class="highlight-label" data-en="SPECIALIZATION" data-ar="التخصص والتأهيل">SPECIALIZATION</span>
+            <span class="highlight-value" data-en="Mathematics &amp; Proof Logic" data-ar="تدريس الرياضيات والمنطق">Mathematics &amp; Proof Logic</span>
+          </div>
+
+          <div class="highlight-item">
+            <div class="cv-num font-mono" style="display:none;"></div>
+            <span class="highlight-label" data-en="EXPERIENCE" data-ar="سنوات الخبرة">EXPERIENCE</span>
+            <span class="highlight-value" data-en="[ To Be Added ]" data-ar="[ سيتم الإضافة قريباً ]">[ To Be Added ]</span>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-label" data-en="SCHOOLS &amp; ORGS" data-ar="المدارس والمؤسسات">SCHOOLS &amp; ORGS</span>
+            <span class="highlight-value" data-en="[ To Be Added ]" data-ar="[ سيتم الإضافة قريباً ]">[ To Be Added ]</span>
+          </div>
+
+          <div class="highlight-item">
+            <span class="highlight-label" data-en="STEM &amp; INT'L" data-ar="التعليم الدولي وSTEM">STEM &amp; INT'L</span>
+            <span class="highlight-value" data-en="[ To Be Added ]" data-ar="[ سيتم الإضافة قريباً ]">[ To Be Added ]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 — FULL TEACHER PROFILE / EXPERIENCE & CV -->
+    <section id="cv" class="experience-cv-section section-padding" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Educator Background &amp; Profile" data-ar="ملف المعلم والخلفية الأكاديمية">Educator Background &amp; Profile</span>
+          <h2 class="section-title font-display"
+              data-en="About the Educator &amp; Experience"
+              data-ar="عن المعلم والخبرة المهنية">
+            About the Educator &amp; Experience
+          </h2>
+          <p class="section-lead"
+             data-en="A transparent overview of educational philosophy, specialization, and upcoming CV document connection."
+             data-ar="نظرة عامة شفافة على الفلسفة التعليمية، التخصص، وتجهيز ملف السيرة الذاتية.">
+            A transparent overview of educational philosophy, specialization, and upcoming CV document connection.
+          </p>
+        </div>
+
+        <!-- Editorial Résumé List -->
+        <div class="cv-resume-list">
+
+          <!-- Item 01 -->
+          <div class="cv-resume-row" data-reveal data-reveal-delay="0">
+            <div class="cv-num font-mono" data-en="01 |" data-ar="٠١ |">01 |</div>
+            <div>
+              <h3 class="cv-title font-display" data-en="Teaching Philosophy &amp; Pedagogy" data-ar="الفلسفة التعليمية والتربوية">
+                Teaching Philosophy &amp; Pedagogy
+              </h3>
+              <p class="cv-desc"
+                 data-en="Fostering deep analytical problem-solving, structured proof deduction, and intuitive comprehension over mechanical memorization."
+                 data-ar="تعزيز حل المشكلات التحليلي العميق، الاستنتاج البرهاني المنهجي، والإدراك البديهي بدلاً من الحفظ الآلي.">
+                Fostering deep analytical problem-solving, structured proof deduction, and intuitive comprehension over mechanical memorization.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 02 -->
+          <div class="cv-resume-row" data-reveal data-reveal-delay="100">
+            <div class="cv-num font-mono" data-en="02 |" data-ar="٠٢ |">02 |</div>
+            <div>
+              <h3 class="cv-title font-display" data-en="Teaching Experience &amp; Positions" data-ar="الخبرة التدريسية والمناصب">
+                Teaching Experience &amp; Positions
+              </h3>
+              <p class="cv-desc"
+                 data-en="[ Teaching Experience Details — To Be Added Upon Verification ]"
+                 data-ar="[ تفاصيل الخبرة التدريسية — سيتم إضافتها فور تأكيد البيانات ]">
+                [ Teaching Experience Details — To Be Added Upon Verification ]
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 03 -->
+          <div class="cv-resume-row" data-reveal data-reveal-delay="200">
+            <div class="cv-num font-mono" data-en="03 |" data-ar="٠٣ |">03 |</div>
+            <div>
+              <h3 class="cv-title font-display" data-en="Schools &amp; Educational Organizations" data-ar="المدارس والمؤسسات التعليمية">
+                Schools &amp; Educational Organizations
+              </h3>
+              <p class="cv-desc"
+                 data-en="[ Educational Institutions &amp; School Background — To Be Added ]"
+                 data-ar="[ خلفية المؤسسات التعليمية والمدارس — سيتم الإضافة قريباً ]">
+                [ Educational Institutions &amp; School Background — To Be Added ]
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 04 -->
+          <div class="cv-resume-row" data-reveal data-reveal-delay="300">
+            <div class="cv-num font-mono" data-en="04 |" data-ar="٠٤ |">04 |</div>
+            <div>
+              <h3 class="cv-title font-display" data-en="STEM &amp; International Curricula" data-ar="التعليم الدولي ومناهج STEM">
+                STEM &amp; International Curricula
+              </h3>
+              <p class="cv-desc"
+                 data-en="[ International Secondary School &amp; STEM Curriculum Specialization — To Be Added ]"
+                 data-ar="[ تخصص المناهج الثانوية الدولية وSTEM — سيتم الإضافة قريباً ]">
+                [ International Secondary School &amp; STEM Curriculum Specialization — To Be Added ]
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- VIEW FULL CV Button -->
+        <div class="cv-action-wrap" data-reveal data-reveal-delay="400">
+          <a href="#cv-document-placeholder" class="btn-cv" data-cv-placeholder="true"
+             aria-label="View Teacher Full CV Document Placeholder">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            <span data-en="VIEW FULL CV (DOCUMENT PLACEHOLDER)" data-ar="عرض السيرة الذاتية (ملف مخصص)">VIEW FULL CV (DOCUMENT PLACEHOLDER)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 — TEACHING VIDEOS -->
+    <section id="videos" class="teaching-videos-section section-padding" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Teaching Demonstrations" data-ar="فيديوهات الشرح">Teaching Demonstrations</span>
+          <h2 class="section-title font-display"
+              data-en="Teaching Videos"
+              data-ar="فيديوهات الشرح">
+            Teaching Videos
+          </h2>
+          <p class="section-lead"
+             data-en="Watch sample lesson breakdowns demonstrating our proof-based approach before contacting the educator."
+             data-ar="شاهد عينات من شروحات الدروس التي توضح أسلوبنا القائم على البرهان قبل التواصل مع المعلم.">
+            Watch sample lesson breakdowns demonstrating our proof-based approach before contacting the educator.
+          </p>
+        </div>
+
+        <!-- Editorial Video Grid -->
+        <div class="videos-grid">
+
+          <!-- Video Card 01 -->
+          <article class="video-frame-card" data-reveal data-reveal-delay="0">
+            <div class="video-frame-media" aria-label="Video lesson placeholder: Why Does Factoring Work?">
+              <span class="video-topic-tag" data-en="ALGEBRA" data-ar="الجبر">ALGEBRA</span>
+              <div class="video-play-btn" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </div>
+              <span class="font-mono" style="font-size: var(--font-size-xs); opacity: 0.8;" data-en="[ Video Lesson Placeholder ]" data-ar="[ فيديو تعليمي مخصص ]">[ Video Lesson Placeholder ]</span>
+            </div>
+            <div class="video-frame-body">
+              <h3 class="video-title font-display" data-en="Why Does Factoring Work?" data-ar="لماذا يعمل التحليل إلى عوامل؟">
+                Why Does Factoring Work?
+              </h3>
+              <p class="video-desc"
+                 data-en="Deconstructing quadratic equations and understanding the visual logic behind algebraic expansion."
+                 data-ar="تفكيك المعادلات التربيعية وفهم المنطق البصري وراء التفكيك الجبري.">
+                Deconstructing quadratic equations and understanding the visual logic behind algebraic expansion.
+              </p>
+            </div>
+          </article>
+
+          <!-- Video Card 02 -->
+          <article class="video-frame-card" data-reveal data-reveal-delay="140">
+            <div class="video-frame-media" aria-label="Video lesson placeholder: Pythagorean Theorem Proof">
+              <span class="video-topic-tag" data-en="GEOMETRY" data-ar="الهندسة">GEOMETRY</span>
+              <div class="video-play-btn" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </div>
+              <span class="font-mono" style="font-size: var(--font-size-xs); opacity: 0.8;" data-en="[ Video Lesson Placeholder ]" data-ar="[ فيديو تعليمي مخصص ]">[ Video Lesson Placeholder ]</span>
+            </div>
+            <div class="video-frame-body">
+              <h3 class="video-title font-display" data-en="Pythagorean Theorem: Beyond Memory to Proof" data-ar="نظرية فيثاغورس: من الحفظ إلى البرهان">
+                Pythagorean Theorem: Beyond Memory to Proof
+              </h3>
+              <p class="video-desc"
+                 data-en="A spatial and geometric proof demonstrating why a² + b² = c² holds true universally."
+                 data-ar="برهان فضائي وهندسي يوضح لماذا تصح a² + b² = c² بصورة كليّة.">
+                A spatial and geometric proof demonstrating why a² + b² = c² holds true universally.
+              </p>
+            </div>
+          </article>
+
+          <!-- Video Card 03 -->
+          <article class="video-frame-card" data-reveal data-reveal-delay="280">
+            <div class="video-frame-media" aria-label="Video lesson placeholder: Understanding Rates of Change">
+              <span class="video-topic-tag" data-en="CALCULUS" data-ar="التفاضل والتكامل">CALCULUS</span>
+              <div class="video-play-btn" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </div>
+              <span class="font-mono" style="font-size: var(--font-size-xs); opacity: 0.8;" data-en="[ Video Lesson Placeholder ]" data-ar="[ فيديو تعليمي مخصص ]">[ Video Lesson Placeholder ]</span>
+            </div>
+            <div class="video-frame-body">
+              <h3 class="video-title font-display" data-en="Understanding Rates of Change &amp; Calculus" data-ar="فهم معدلات التغير والتفاضل">
+                Understanding Rates of Change &amp; Calculus
+              </h3>
+              <p class="video-desc"
+                 data-en="Bridging the gap between static algebra and continuous instantaneous change."
+                 data-ar="ربط الفجوة بين الجبر الثابت والتغير اللحظي المستمر.">
+                Bridging the gap between static algebra and continuous instantaneous change.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 — MATHEMATICS CURRICULUM -->
+    <section id="curriculum" class="curriculum-section section-padding" data-reveal>
+      <div class="container">
+        <div class="section-heading" data-reveal data-reveal-delay="0">
+          <span class="section-eyebrow" data-en="Curriculum &amp; Topic Modules" data-ar="وحدات المنهج والموضوعات">Curriculum &amp; Topic Modules</span>
+          <h2 class="section-title font-display"
+              data-en="Structured disciplines of mathematical reasoning."
+              data-ar="فروع منهجة للتفكير الرياضي.">
+            Structured disciplines of mathematical reasoning.
+          </h2>
+          <p class="section-lead"
+             data-en="Each module is built around fundamental principles, proof constructions, and deep conceptual understanding."
+             data-ar="تُبنى كل وحدة حول المبادئ الأساسية، الإنشاءات البرهانية، والفهم المفاهيمي العميق.">
+            Each module is built around fundamental principles, proof constructions, and deep conceptual understanding.
+          </p>
+        </div>
+
+        <!-- Text-forward Topic List -->
+        <div class="curriculum-list">
+
+          <div class="curriculum-row" data-reveal data-reveal-delay="0">
+            <div class="curriculum-meta">
+              <span class="curriculum-num font-mono" data-en="01 |" data-ar="٠١ |">01 |</span>
+            </div>
+            <div class="curriculum-content">
+              <h3 class="curriculum-title font-display" data-en="Algebra &amp; Structural Equations" data-ar="الجبر والمعادلات الهيكلية">
+                Algebra &amp; Structural Equations
+              </h3>
+              <p class="curriculum-desc"
+                 data-en="Understanding algebraic relationships, structural balance, polynomial factoring, quadratic systems, and the logic of variables."
+                 data-ar="فهم العلاقات الجبرية، التوازن الهيكلي، تحليل الحدوديات، أنظمة التربيع، ومنطق المتغيرات.">
+                Understanding algebraic relationships, structural balance, polynomial factoring, quadratic systems, and the logic of variables.
+              </p>
+            </div>
+          </div>
+
+          <div class="curriculum-row" data-reveal data-reveal-delay="100">
+            <div class="curriculum-meta">
+              <span class="curriculum-num font-mono" data-en="02 |" data-ar="٠٢ |">02 |</span>
+            </div>
+            <div class="curriculum-content">
+              <h3 class="curriculum-title font-display" data-en="Geometry &amp; Spatial Proof" data-ar="الهندسة والبرهان الفضائي">
+                Geometry &amp; Spatial Proof
+              </h3>
+              <p class="curriculum-desc"
+                 data-en="Seeing mathematical relationships through geometric constructions, Pythagorean proofs, vector spaces, and spatial deduction."
+                 data-ar="رؤية العلاقات الرياضية من خلال الإنشاءات الهندسية، براهين فيثاغورس، المساحات الاتجاهية، والاستنتاج الفضائي.">
+                Seeing mathematical relationships through geometric constructions, Pythagorean proofs, vector spaces, and spatial deduction.
+              </p>
+            </div>
+          </div>
+
+          <div class="curriculum-row" data-reveal data-reveal-delay="200">
+            <div class="curriculum-meta">
+              <span class="curriculum-num font-mono" data-en="03 |" data-ar="٠٣ |">03 |</span>
+            </div>
+            <div class="curriculum-content">
+              <h3 class="curriculum-title font-display" data-en="Functions &amp; Mathematical Analysis" data-ar="الدالة والتحليل الرياضي">
+                Functions &amp; Mathematical Analysis
+              </h3>
+              <p class="curriculum-desc"
+                 data-en="Investigating how quantities transform across continuous mathematical spaces, function compositions, and inverse relations."
+                 data-ar="استكشاف كيفية تحول الكميات عبر المساحات الرياضية المستمرة، تركيب الدوال، والعلاقات العكسية.">
+                Investigating how quantities transform across continuous mathematical spaces, function compositions, and inverse relations.
+              </p>
+            </div>
+          </div>
+
+          <div class="curriculum-row" data-reveal data-reveal-delay="300">
+            <div class="curriculum-meta">
+              <span class="curriculum-num font-mono" data-en="04 |" data-ar="٠٤ |">04 |</span>
+            </div>
+            <div class="curriculum-content">
+              <h3 class="curriculum-title font-display" data-en="Calculus &amp; Continuous Motion" data-ar="التفاضل والتكامل والحركة المستمرة">
+                Calculus &amp; Continuous Motion
+              </h3>
+              <p class="curriculum-desc"
+                 data-en="Exploring instantaneous rates of change, accumulation of quantities, limits, derivatives, and continuous integrals."
+                 data-ar="استكشاف معدلات التغير اللحظية، تراكم الكميات، النهايات، المشتقات، والتكاملات المستمرة.">
+                Exploring instantaneous rates of change, accumulation of quantities, limits, derivatives, and continuous integrals.
+              </p>
+            </div>
+          </div>
+
+          <div class="curriculum-row" data-reveal data-reveal-delay="400">
+            <div class="curriculum-meta">
+              <span class="curriculum-num font-mono" data-en="05 |" data-ar="٠٥ |">05 |</span>
+            </div>
+            <div class="curriculum-content">
+              <h3 class="curriculum-title font-display" data-en="Probability &amp; Deductive Logic" data-ar="الاحتمالات والمنطق الاستنتاجي">
+                Probability &amp; Deductive Logic
+              </h3>
+              <p class="curriculum-desc"
+                 data-en="Quantifying uncertainty, structural combinations, formal logic systems, and mathematical proof structures."
+                 data-ar="قياس الترددات، التوافقات الهيكلية، أنظمة المنطق الصوري، وهياكل البراهين الرياضية.">
+                Quantifying uncertainty, structural combinations, formal logic systems, and mathematical proof structures.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 — CONTACT THE TEACHER -->
+    <section id="contact" class="contact-teacher-section section-padding" data-reveal>
+      <div class="container">
+        <div class="contact-teacher-card contact-teacher-card--math">
+
+          <span class="contact-teacher-eyebrow" aria-hidden="true">
+            <span class="contact-teacher-eyebrow-line"></span>
+            <span class="contact-teacher-eyebrow-label" data-en="Mathematics" data-ar="الرياضيات">Mathematics</span>
+            <span class="contact-teacher-eyebrow-line"></span>
+          </span>
+
+          <div class="contact-teacher-icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 0 0 1.333 4.993L2 22l5.233-1.337a9.96 9.96 0 0 0 4.779 1.216h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.667-1.037-5.176-2.922-7.062A9.925 9.925 0 0 0 12.012 2zm0 18.163h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.82.836-3.056-.197-.313a8.27 8.27 0 0 1-1.267-4.464c0-4.568 3.718-8.286 8.291-8.286 2.213 0 4.293.863 5.858 2.43 1.564 1.566 2.426 3.647 2.425 5.86 0 4.569-3.717 8.286-8.284 8.286z"/>
+            </svg>
+          </div>
+
+          <h2 class="contact-teacher-name font-display"
+              data-en="Ammar Yehia Mohamed"
+              data-ar="عمار يحيى محمد">
+            Ammar Yehia Mohamed
+          </h2>
+
+          <p class="contact-teacher-role font-mono"
+             data-en="Mathematics Educator"
+             data-ar="معلم الرياضيات">
+            Mathematics Educator
+          </p>
+
+          <p class="contact-teacher-message"
+             data-en="Talk directly with Mr. Ammar regarding class availability, schedules, and learning guidance."
+             data-ar="تحدث مباشرة مع الأستاذ عمار بشأن مواعيد الدروس، الجداول، والإرشاد التعليمي.">
+            Talk directly with Mr. Ammar regarding class availability, schedules, and learning guidance.
+          </p>
+
+          <a href="https://wa.me/201503457772"
+             target="_blank" rel="noopener noreferrer"
+             class="btn-whatsapp"
+             aria-label="Contact Mr. Ammar Yehia Mohamed on WhatsApp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.964 9.964 0 0 0 1.333 4.993L2 22l5.233-1.337a9.96 9.96 0 0 0 4.779 1.216h.004c5.505 0 9.988-4.478 9.989-9.985 0-2.667-1.037-5.176-2.922-7.062A9.925 9.925 0 0 0 12.012 2zm0 18.163h-.003a8.28 8.28 0 0 1-4.223-1.157l-.303-.18-3.137.82.836-3.056-.197-.313a8.27 8.27 0 0 1-1.267-4.464c0-4.568 3.718-8.286 8.291-8.286 2.213 0 4.293.863 5.858 2.43 1.564 1.566 2.426 3.647 2.425 5.86 0 4.569-3.717 8.286-8.284 8.286z"/>
+            </svg>
+            <span data-en="Contact via WhatsApp" data-ar="تواصل مع المدرس عبر WhatsApp">Contact via WhatsApp</span>
+          </a>
+
+          <span class="contact-teacher-phone font-mono"
+                data-en="0150 3457772"
+                data-ar="0150 3457772">
+            0150 3457772
+          </span>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 08 — CLOSING CTA SECTION -->
+    <section class="closing-cta-section" data-reveal>
+      <div class="container">
+        <div class="section-divider" aria-hidden="true">
+          <span class="burhan-divider closing-divider">|</span>
+        </div>
+        <h2 class="closing-cta-title font-display"
+            data-en="UNDERSTAND THE WHY."
+            data-ar="فهم السبب الجوهري.">
+          UNDERSTAND THE WHY.
+        </h2>
+        <p class="section-lead closing-cta-lead"
+           data-en="Explore the principles of Mathematics or reach out directly to the teacher."
+           data-ar="استكشف مبادئ الرياضيات أو تواصل مباشرة مع المعلم.">
+          Explore the principles of Mathematics or reach out directly to the teacher.
+        </p>
+
+        <div class="closing-cta-actions">
+          <a href="#contact" class="btn btn-math" data-en="Talk to the Teacher" data-ar="تحدث مع المعلم">Talk to the Teacher</a>
+          <a href="science.html" class="btn btn-science" data-en="Science World" data-ar="عالم العلوم">Science World</a>
+          <a href="index.html" class="btn btn-secondary" data-en="Back to Home" data-ar="العودة للرئيسية">Back to Home</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 09 — GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="burhan-wordmark">
+            BURHAN <span class="burhan-divider">|</span> بُرهان
+          </a>
+          <p data-en="An educational brand focused on helping students understand the WHY behind Mathematics and Science."
+             data-ar="علامة تجارية تعليمية تركز على مساعدة الطلاب على فهم السبب الجوهري وراء الرياضيات والعلوم.">
+            An educational brand focused on helping students understand the WHY behind Mathematics and Science.
+          </p>
+        </div>
+        <div>
+          <ul class="footer-nav">
+            <li><a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a></li>
+            <li><a href="mathematics.html" class="nav-link" data-en="Mathematics World" data-ar="عالم الرياضيات">Mathematics World</a></li>
+            <li><a href="science.html" class="nav-link" data-en="Science World" data-ar="عالم العلوم">Science World</a></li>
+            <li><a href="contact.html" class="nav-link" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-en="Contact Placeholder — Details to be announced" data-ar="مساحة مخصصة لمعلومات التواصل — سيتم الإعلان عنها">
+          Contact Placeholder — Details to be announced
+        </span>
+        <span data-en="© 2026 BURHAN | بُرهان. All rights reserved." data-ar="© 2026 بُرهان | BURHAN. جميع الحقوق محفوظة.">
+          © 2026 BURHAN | بُرهان. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
